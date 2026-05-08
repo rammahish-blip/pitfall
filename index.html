@@ -3,121 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Pitfall</title>
+<title>Gem Loop</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 :root{
-  --bg:#F5EFE4;--surface:#FDFAF5;--surface2:#EDE6D8;--border:#D8CCBA;
-  --text:#1C150A;--muted:#7A6848;--faint:#B8A88A;
-  --amber:#C47B10;--amber-bg:#FEF3DF;--amber-bdr:#E8A83A;
-  --pink:#B8406A;--pink-bg:#FAEBF1;--pink-bdr:#D4789A;
-  --green:#2A6618;--green-bg:#E4F2DF;--green-bdr:#58A048;
+  --bg:#F5EFE4;--sf:#FDFAF5;--sf2:#EDE6D8;--br:#D8CCBA;
+  --tx:#1C150A;--mu:#7A6848;--fa:#B8A88A;
+  --am:#C47B10;--am-bg:#FEF3DF;--am-br:#E8A83A;
+  --gn:#2A6618;--gn-bg:#E4F2DF;--gn-br:#58A048;
+  --pu:#6B3FA0;--pu-bg:#F0EAF8;--pu-br:#A07ACC;
 }
 html,body{height:100%;overflow:hidden;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column;align-items:center;max-width:420px;margin:0 auto;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;align-items:center;max-width:420px;margin:0 auto;}
 .screen{width:100%;height:100vh;overflow-y:auto;padding:28px 20px 40px;display:none;flex-direction:column;}
 .screen.active{display:flex;}
 
 /* TITLE */
 #s-title{align-items:center;justify-content:center;text-align:center;}
-.title-word{font-family:'Fraunces',serif;font-size:72px;font-weight:700;letter-spacing:-2px;color:var(--text);line-height:1;}
-.title-sub{font-size:13px;color:var(--muted);margin-top:10px;letter-spacing:0.04em;}
-.title-gems{display:flex;gap:10px;margin:28px 0;justify-content:center;}
-.title-gem{width:44px;height:44px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--muted);}
-.title-gem.a{background:var(--amber-bg);border-color:var(--amber-bdr);color:var(--amber);}
-.title-gem.g{background:var(--green-bg);border-color:var(--green-bdr);color:var(--green);}
-.btn-play{background:var(--amber);color:#fff;border:none;border-radius:14px;padding:16px 48px;font-size:17px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;letter-spacing:0.02em;}
-.title-note{font-size:11px;color:var(--faint);margin-top:14px;}
+.t-word{font-family:'Fraunces',serif;font-size:64px;font-weight:700;letter-spacing:-2px;line-height:1;}
+.t-sub{font-size:13px;color:var(--mu);margin-top:8px;letter-spacing:.04em;}
+.t-gems{display:flex;gap:8px;margin:24px 0;justify-content:center;}
+.t-gem{width:42px;height:42px;border-radius:50%;background:var(--sf);border:1.5px solid var(--br);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--mu);}
+.t-gem.a{background:var(--am-bg);border-color:var(--am-br);color:var(--am);}
+.t-gem.g{background:var(--gn-bg);border-color:var(--gn-br);color:var(--gn);}
+.btn-play{background:var(--am);color:#fff;border:none;border-radius:14px;padding:16px 48px;font-size:17px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
+.t-note{font-size:11px;color:var(--fa);margin-top:14px;}
 
 /* TUTORIAL */
-#s-tutorial{gap:0;}
-.tut-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;}
-.tut-title{font-family:'Fraunces',serif;font-size:24px;font-weight:600;}
-.tut-skip{font-size:13px;color:var(--muted);cursor:pointer;padding:4px 10px;border-radius:6px;border:1px solid var(--border);}
-.tut-dots{display:flex;gap:6px;margin-bottom:22px;}
-.tut-dot{width:28px;height:4px;border-radius:2px;background:var(--surface2);}
-.tut-dot.on{background:var(--amber);}
+#s-tut{gap:0;}
+.tut-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.tut-ttl{font-family:'Fraunces',serif;font-size:22px;font-weight:600;}
+.tut-skip{font-size:13px;color:var(--mu);cursor:pointer;padding:4px 10px;border-radius:6px;border:1px solid var(--br);}
+.tut-dots{display:flex;gap:6px;margin-bottom:20px;}
+.tut-dot{width:28px;height:4px;border-radius:2px;background:var(--sf2);}
+.tut-dot.on{background:var(--am);}
 .tut-step{display:none;}
 .tut-step.on{display:block;}
-.tut-illus{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:18px;display:flex;justify-content:center;}
-.tut-h{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-bottom:8px;}
-.tut-p{font-size:14px;color:var(--muted);line-height:1.7;}
-.tut-p b{color:var(--text);font-weight:500;}
-.tut-nav{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px;}
-.btn-ghost{background:none;border:1.5px solid var(--border);border-radius:10px;padding:10px 20px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--muted);cursor:pointer;}
-.btn-next{background:var(--amber);color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.tut-illus{background:var(--sf);border:1px solid var(--br);border-radius:16px;padding:16px;margin-bottom:16px;display:flex;justify-content:center;}
+.tut-h{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin-bottom:8px;}
+.tut-p{font-size:13px;color:var(--mu);line-height:1.75;}
+.tut-p b{color:var(--tx);font-weight:500;}
+.tut-nav{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;}
+.btn-gh{background:none;border:1.5px solid var(--br);border-radius:10px;padding:10px 20px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;}
+.btn-nx{background:var(--am);color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:14px;font-family:'DM Sans',sans-serif;cursor:pointer;}
 
 /* MAP */
 #s-map{gap:0;}
 .map-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
-.map-title{font-family:'Fraunces',serif;font-size:26px;font-weight:600;}
-.reset-btn{font-size:11px;color:var(--faint);background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;font-family:'DM Sans',sans-serif;}
-.map-sub{font-size:12px;color:var(--muted);margin-bottom:18px;}
-.level-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
-.lvl-node{aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1.5px solid var(--border);background:var(--surface);transition:transform 0.12s,box-shadow 0.12s;position:relative;}
-.lvl-node.open{border-color:var(--amber-bdr);cursor:pointer;}
-.lvl-node.open:active{transform:scale(0.96);}
-.lvl-node.done{border-color:var(--green-bdr);cursor:pointer;}
-.lvl-node.done:active{transform:scale(0.96);}
-.lvl-node.locked{opacity:0.38;pointer-events:none;background:var(--surface2);}
+.map-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:600;}
+.rst-btn{font-size:11px;color:var(--fa);background:none;border:1px solid var(--br);border-radius:6px;padding:4px 10px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.map-sub{font-size:12px;color:var(--mu);margin-bottom:18px;}
+.lvl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.lvl-nd{aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1.5px solid var(--br);background:var(--sf);transition:transform .12s;position:relative;}
+.lvl-nd.open{border-color:var(--am-br);cursor:pointer;}
+.lvl-nd.open:active{transform:scale(.96);}
+.lvl-nd.done{border-color:var(--gn-br);cursor:pointer;}
+.lvl-nd.locked{opacity:.38;pointer-events:none;background:var(--sf2);}
 .ln-num{font-family:'Fraunces',serif;font-size:18px;font-weight:600;}
-.ln-stars{font-size:10px;letter-spacing:1px;margin-top:2px;}
-.ln-stars.has{color:var(--amber-bdr);}
-.ln-stars.none{color:var(--faint);}
+.ln-st{font-size:10px;letter-spacing:1px;margin-top:2px;}
+.ln-st.has{color:var(--am-br);}
+.ln-st.no{color:var(--fa);}
 
 /* GAME */
 #s-game{padding-top:20px;gap:0;}
 .g-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-.g-back{background:none;border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-size:12px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;}
-.g-name{font-family:'Fraunces',serif;font-size:16px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.g-bk{background:none;border:1px solid var(--br);border-radius:8px;padding:5px 12px;font-size:12px;color:var(--mu);cursor:pointer;font-family:'DM Sans',sans-serif;}
+.g-nm{font-family:'Fraunces',serif;font-size:16px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .stats{display:flex;gap:8px;margin-bottom:10px;}
-.stat{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px;text-align:center;}
-.stat-l{font-size:10px;color:var(--faint);letter-spacing:0.05em;text-transform:uppercase;}
+.stat{flex:1;background:var(--sf);border:1px solid var(--br);border-radius:10px;padding:8px 10px;text-align:center;}
+.stat-l{font-size:10px;color:var(--fa);letter-spacing:.05em;text-transform:uppercase;}
 .stat-v{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-top:1px;}
-.stat-v.a{color:var(--amber);}
-.stat-v.g{color:var(--green);}
-.board-wrap{position:relative;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.stat-v.a{color:var(--am);}
+.stat-v.g{color:var(--gn);}
+.brd-wrap{position:relative;width:100%;background:var(--sf);border:1px solid var(--br);border-radius:16px;overflow:hidden;}
 #board{position:relative;width:100%;}
 #bsvg{position:absolute;top:0;left:0;width:100%;pointer-events:none;}
-#status{font-size:12px;color:var(--muted);text-align:center;min-height:18px;margin:8px 4px;}
+#status{font-size:12px;color:var(--mu);text-align:center;min-height:18px;margin:8px 4px;}
 
 /* VAULTS */
-.v{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;border:1.5px solid var(--border);background:var(--surface);color:var(--text);cursor:default;user-select:none;transition:border .15s,background .15s,color .15s,transform .12s;}
-.v.empty{color:var(--faint);}
-.v.pickable{border:2px solid var(--amber);color:var(--amber);background:var(--amber-bg);cursor:pointer;}
+.v{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;border:1.5px solid var(--br);background:var(--sf);color:var(--tx);cursor:default;user-select:none;transition:border .15s,background .15s,color .15s,transform .12s;}
+.v.empty{color:var(--fa);}
+.v.pickable{border:2px solid var(--am);color:var(--am);background:var(--am-bg);cursor:pointer;}
 .v.pickable:active{transform:scale(1.08);}
-.v.source{border:2px solid #8A5000;background:var(--amber-bg);color:#8A5000;}
-.v.dropping{border:2.5px solid var(--amber-bdr);background:var(--amber-bg);color:#8A5000;}
-.v.trail{border:1px dashed #E8C07050;opacity:0.5;}
-.v.lastdrop{border:2.5px solid var(--amber-bdr);background:var(--amber-bg);color:#8A5000;}
-.v.cascade{border:2.5px solid var(--pink);background:var(--pink-bg);color:var(--pink);cursor:pointer;animation:pulse .9s ease-in-out infinite;}
-.v.cascade:active{transform:scale(1.1);}
-.v.collected{border:2.5px solid var(--green-bdr);background:var(--green-bg);color:var(--green);}
-.v.nocollect{border:1.5px dashed var(--border);opacity:0.5;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px var(--pink-bg)}50%{box-shadow:0 0 0 8px transparent}}
+.v.hidden{border:2px solid var(--pu-br);background:var(--pu-bg);color:var(--pu);cursor:pointer;animation:hpulse 1.5s ease-in-out infinite;}
+.v.hidden:active{transform:scale(1.08);}
+.v.hreveal{border:2px solid var(--pu-br);background:var(--pu-bg);animation:reveal .5s ease-out forwards;}
+.v.source{border:2px solid #8A5000;background:var(--am-bg);color:#8A5000;}
+.v.dropping{border:2.5px solid var(--am-br);background:var(--am-bg);color:#8A5000;}
+.v.trail{border:1px dashed #E8C07050;opacity:.5;}
+.v.lastdrop{border:2.5px solid var(--am-br);background:var(--am-bg);color:#8A5000;}
+.v.collected{border:2.5px solid var(--gn-br);background:var(--gn-bg);color:var(--gn);}
+.v.nocollect{border:1.5px dashed var(--br);opacity:.5;}
+@keyframes hpulse{0%,100%{box-shadow:0 0 0 3px var(--pu-bg)}50%{box-shadow:0 0 0 8px transparent}}
+@keyframes reveal{0%{transform:scale(1.2)}60%{transform:scale(.95)}100%{transform:scale(1)}}
 
 /* BADGES */
 .badge{position:absolute;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:500;white-space:nowrap;pointer-events:none;z-index:10;border:1px solid;opacity:0;transform:translateY(4px) translateX(-50%);transition:opacity .28s,transform .28s;}
 .badge.show{opacity:1;transform:translateY(0) translateX(-50%);}
-.badge.stop{background:var(--amber-bg);border-color:var(--amber-bdr);color:#8A5000;}
-.badge.empty{background:var(--surface2);border-color:var(--border);color:var(--muted);}
-.badge.cont{background:var(--pink-bg);border-color:var(--pink-bdr);color:var(--pink);}
-.badge.collect{background:var(--green-bg);border-color:var(--green-bdr);color:var(--green);font-weight:600;}
-.badge.miss{background:var(--surface2);border-color:var(--border);color:var(--faint);}
+.badge.stop{background:var(--am-bg);border-color:var(--am-br);color:#8A5000;}
+.badge.empty{background:var(--sf2);border-color:var(--br);color:var(--mu);}
+.badge.collect{background:var(--gn-bg);border-color:var(--gn-br);color:var(--gn);font-weight:600;font-size:12px;}
+.badge.miss{background:var(--sf2);border-color:var(--br);color:var(--fa);}
+.badge.rev{background:var(--pu-bg);border-color:var(--pu-br);color:var(--pu);font-weight:600;}
 
-/* OVERLAY */
-#overlay{display:none;position:fixed;inset:0;background:rgba(20,14,4,.65);z-index:100;align-items:center;justify-content:center;padding:24px;}
-#overlay.show{display:flex;}
-.ov-card{background:var(--surface);border-radius:20px;padding:32px 28px;width:100%;max-width:340px;text-align:center;}
-.ov-stars{font-size:34px;letter-spacing:5px;color:var(--amber-bdr);margin-bottom:10px;}
-.ov-title{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:4px;}
-.ov-score{font-family:'Fraunces',serif;font-size:52px;font-weight:700;color:var(--amber);line-height:1;}
-.ov-tgt{font-size:12px;color:var(--faint);margin:4px 0 10px;}
-.ov-msg{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px;}
-.ov-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
-.ob{padding:10px 18px;border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);color:var(--muted);}
-.ob.p{background:var(--amber);border-color:var(--amber);color:#fff;}
+/* CONFETTI OVERLAY */
+#confetti-wrap{display:none;position:fixed;inset:0;z-index:200;pointer-events:none;}
+#confetti-wrap.show{display:block;}
+canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
+
+/* LEVEL COMPLETE OVERLAY */
+#lc-overlay{display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center;padding:24px;}
+#lc-overlay.show{display:flex;}
+.lc-card{background:var(--sf);border-radius:20px;padding:32px 28px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(20,14,4,.3);animation:cardpop .4s cubic-bezier(.175,.885,.32,1.275) forwards;}
+@keyframes cardpop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.lc-badge{font-size:48px;margin-bottom:8px;}
+.lc-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--tx);margin-bottom:4px;}
+.lc-sub{font-size:13px;color:var(--mu);margin-bottom:20px;}
+.lc-stars{font-size:32px;letter-spacing:6px;color:var(--am-br);margin-bottom:20px;}
+.lc-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.lc-btn{padding:10px 18px;border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;border:1.5px solid var(--br);background:var(--sf);color:var(--mu);}
+.lc-btn.primary{background:var(--am);border-color:var(--am);color:#fff;}
 </style>
 </head>
 <body>
@@ -125,24 +131,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);dis
 <!-- TITLE -->
 <div class="screen active" id="s-title">
   <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-    <div class="title-word">Pitfall</div>
-    <div class="title-sub">a gem-collecting loop puzzle</div>
-    <div class="title-gems">
-      <div class="title-gem">3</div>
-      <div class="title-gem">0</div>
-      <div class="title-gem a">4</div>
-      <div class="title-gem">0</div>
-      <div class="title-gem g">2</div>
+    <div class="t-word">Gem Loop</div>
+    <div class="t-sub">a gem-collecting loop puzzle</div>
+    <div class="t-gems">
+      <div class="t-gem">3</div><div class="t-gem">0</div>
+      <div class="t-gem a">4</div><div class="t-gem">0</div>
+      <div class="t-gem g">2</div>
     </div>
     <button class="btn-play" onclick="startFromTitle()">play</button>
-    <div class="title-note">25 levels · no timer · pure logic</div>
+    <div class="t-note">25 levels · each pick is a turn · pure strategy</div>
   </div>
 </div>
 
 <!-- TUTORIAL -->
-<div class="screen" id="s-tutorial">
-  <div class="tut-header">
-    <div class="tut-title">how to play</div>
+<div class="screen" id="s-tut">
+  <div class="tut-hdr">
+    <div class="tut-ttl">how to play</div>
     <div class="tut-skip" onclick="finishTut()">skip</div>
   </div>
   <div class="tut-dots">
@@ -153,88 +157,82 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);dis
 
   <div class="tut-step on" id="t0">
     <div class="tut-illus">
-      <svg width="280" height="104" viewBox="0 0 280 104">
+      <svg width="280" height="108" viewBox="0 0 280 108">
         <defs><marker id="ma" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C47B1088"/></marker></defs>
-        <rect x="18" y="16" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
-        <line x1="118" y1="84" x2="158" y2="84" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
-        <line x1="260" y1="64" x2="260" y2="40" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
-        <line x1="162" y1="20" x2="122" y2="20" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
-        <line x1="20" y1="40" x2="20" y2="64" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
-        <circle cx="52" cy="20" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="108" cy="20" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="172" cy="20" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="228" cy="20" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="52" cy="84" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="52" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="16" font-weight="600" fill="#C47B10">4</text>
-        <circle cx="108" cy="84" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <text x="108" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
-        <circle cx="172" cy="84" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <text x="172" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
-        <circle cx="228" cy="84" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
-        <text x="228" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
-        <text x="52" y="6" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#C47B10" font-weight="500">tap!</text>
-        <text x="200" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#B8A88A">your side</text>
+        <rect x="18" y="18" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
+        <!-- Clockwise arrows: bottom L→R, right side up, top R→L, left side down -->
+        <line x1="108" y1="90" x2="148" y2="90" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
+        <line x1="260" y1="68" x2="260" y2="42" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
+        <line x1="172" y1="22" x2="132" y2="22" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
+        <line x1="20" y1="42" x2="20" y2="68" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
+        <circle cx="52" cy="90" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
+        <text x="52" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="15" font-weight="600" fill="#C47B10">3</text>
+        <text x="52" y="8" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#C47B10" font-weight="500">tap!</text>
+        <circle cx="108" cy="90" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
+        <text x="108" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
+        <circle cx="172" cy="90" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
+        <text x="172" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
+        <circle cx="228" cy="90" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
+        <text x="228" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
+        <text x="140" y="106" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">gems travel clockwise →</text>
       </svg>
     </div>
-    <div class="tut-h">pick a vault</div>
-    <div class="tut-p">Tap any <b>amber vault</b> on the board. You pick up all the gems inside it — that vault becomes empty and the gems are in your hand, ready to drop.</div>
+    <div class="tut-h">each pick is one turn</div>
+    <div class="tut-p">Tap any <b>amber vault</b>. All its gems drop one-by-one <b>clockwise around the loop</b>. That's your full turn. You have a limited number of picks — choose carefully to hit your target.</div>
   </div>
 
   <div class="tut-step" id="t1">
     <div class="tut-illus">
-      <svg width="280" height="104" viewBox="0 0 280 104">
-        <defs><marker id="mb" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#E8A83Acc"/></marker></defs>
-        <rect x="18" y="16" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="52" cy="84" r="17" fill="#FEF3DF" stroke="#8A5000" stroke-width="2"/>
-        <text x="52" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#8A5000">0</text>
-        <text x="52" y="76" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8A5000">picked</text>
-        <line x1="72" y1="84" x2="88" y2="84" stroke="#E8A83A" stroke-width="2" marker-end="url(#mb)"/>
-        <circle cx="108" cy="84" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="108" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#C47B10">+1</text>
-        <line x1="128" y1="84" x2="140" y2="84" stroke="#E8A83A" stroke-width="2" marker-end="url(#mb)"/>
-        <circle cx="172" cy="84" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="172" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#C47B10">+1</text>
-        <line x1="192" y1="84" x2="206" y2="84" stroke="#E8A83A" stroke-width="2" marker-end="url(#mb)"/>
-        <circle cx="228" cy="84" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="228" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#C47B10">+1</text>
-        <path d="M 244 72 Q 262 52 244 26" fill="none" stroke="#E8A83A" stroke-width="2" marker-end="url(#mb)"/>
-        <circle cx="228" cy="20" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="228" y="25" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#C47B10">+1</text>
-        <text x="258" y="52" font-family="DM Sans,sans-serif" font-size="9" fill="#C47B10">wrap</text>
-      </svg>
-    </div>
-    <div class="tut-h">gems drop around the loop</div>
-    <div class="tut-p">One gem drops into each vault going <b>clockwise</b>. When you reach the end of a row the gems <b>wrap around</b> to the other row and keep going.</div>
-  </div>
-
-  <div class="tut-step" id="t2">
-    <div class="tut-illus">
-      <svg width="280" height="104" viewBox="0 0 280 104">
+      <svg width="280" height="108" viewBox="0 0 280 108">
         <defs>
           <marker id="mc" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#B8A88Aaa"/></marker>
           <marker id="md" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#58A048cc"/></marker>
         </defs>
-        <rect x="18" y="16" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
-        <circle cx="52" cy="84" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
-        <text x="52" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#C47B10">last</text>
-        <line x1="72" y1="84" x2="88" y2="84" stroke="#B8A88A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#mc)"/>
-        <circle cx="108" cy="84" r="17" fill="#EDE6D8" stroke="#D8CCBA" stroke-width="1.5" stroke-dasharray="5 3"/>
-        <text x="108" y="89" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#B8A88A">0</text>
-        <text x="108" y="76" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">empty ✓</text>
-        <line x1="128" y1="84" x2="140" y2="84" stroke="#58A048" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#md)"/>
-        <circle cx="172" cy="84" r="17" fill="#E4F2DF" stroke="#58A048" stroke-width="2.5"/>
-        <text x="172" y="89" text-anchor="middle" font-family="Fraunces,serif" font-size="16" font-weight="700" fill="#2A6618">5</text>
-        <rect x="194" y="74" width="72" height="22" rx="11" fill="#E4F2DF" stroke="#58A048" stroke-width="1"/>
-        <text x="230" y="89" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#2A6618">+5 collect!</text>
+        <rect x="18" y="18" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
+        <circle cx="52" cy="90" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
+        <text x="52" y="96" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#C47B10">last drop</text>
+        <line x1="72" y1="90" x2="88" y2="90" stroke="#B8A88A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#mc)"/>
+        <circle cx="108" cy="90" r="17" fill="#EDE6D8" stroke="#D8CCBA" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="108" y="95" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#B8A88A">0</text>
+        <text x="108" y="78" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">empty ✓</text>
+        <line x1="128" y1="90" x2="140" y2="90" stroke="#58A048" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#md)"/>
+        <circle cx="172" cy="90" r="17" fill="#E4F2DF" stroke="#58A048" stroke-width="2.5"/>
+        <text x="172" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="15" font-weight="700" fill="#2A6618">5</text>
+        <rect x="194" y="78" width="70" height="20" rx="10" fill="#E4F2DF" stroke="#58A048" stroke-width="1"/>
+        <text x="229" y="92" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#2A6618">+5 gems!</text>
+        <text x="108" y="106" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">if next vault is NOT empty — no collect, turn ends</text>
       </svg>
     </div>
     <div class="tut-h">collect across the gap</div>
-    <div class="tut-p">After your last drop — if the <b>next vault is empty</b>, check the one after it. Gems there? <b>You collect them all!</b> If the next vault has gems, it turns <b style="color:var(--pink)">pink</b> — tap it to keep going.</div>
+    <div class="tut-p">After your last gem drops — if the <b>next vault is empty</b> and the vault after it has gems, you <b>collect them all!</b> If the next vault has gems, the turn ends with no collect. Plan your picks to land in the right spot.</div>
+  </div>
+
+  <div class="tut-step" id="t2">
+    <div class="tut-illus">
+      <svg width="280" height="108" viewBox="0 0 280 108">
+        <rect x="18" y="18" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
+        <circle cx="52" cy="90" r="17" fill="#FEF3DF" stroke="#E8A83A" stroke-width="2.5"/>
+        <text x="52" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="14" font-weight="600" fill="#C47B10">4</text>
+        <circle cx="108" cy="90" r="17" fill="#F0EAF8" stroke="#A07ACC" stroke-width="2"/>
+        <text x="108" y="96" text-anchor="middle" font-family="Fraunces,serif" font-size="18" font-weight="700" fill="#6B3FA0">?</text>
+        <text x="108" y="78" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#6B3FA0">mystery</text>
+        <circle cx="172" cy="90" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
+        <text x="172" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
+        <circle cx="228" cy="90" r="17" fill="#FDFAF5" stroke="#D8CCBA" stroke-width="1.5"/>
+        <text x="228" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#B8A88A">0</text>
+        <text x="108" y="8" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#6B3FA0" font-weight="500">tap to reveal!</text>
+        <circle cx="228" cy="30" r="14" fill="#E4F2DF" stroke="#58A048" stroke-width="1.5"/>
+        <text x="228" y="35" text-anchor="middle" font-family="Fraunces,serif" font-size="13" font-weight="600" fill="#2A6618">3</text>
+        <text x="228" y="10" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#2A6618">revealed!</text>
+      </svg>
+    </div>
+    <div class="tut-h">mystery vaults</div>
+    <div class="tut-p">Later levels have <b style="color:var(--pu)">mystery vaults</b> — you don't know how many gems are inside. Tap them anyway — <b>the count reveals the moment you pick</b>, then gems drop as normal. Risk or safety — your call.</div>
   </div>
 
   <div class="tut-nav">
-    <button class="btn-ghost" id="tprev" onclick="tutPrev()" style="visibility:hidden;">← back</button>
-    <button class="btn-next" id="tnext" onclick="tutNext()">next →</button>
+    <button class="btn-gh" id="tprev" onclick="tutPrev()" style="visibility:hidden;">← back</button>
+    <button class="btn-nx" id="tnext" onclick="tutNext()">next →</button>
   </div>
 </div>
 
@@ -242,119 +240,108 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);dis
 <div class="screen" id="s-map">
   <div class="map-hdr">
     <div style="display:flex;align-items:center;gap:10px;">
-      <div style="font-size:20px;">🕳️</div>
-      <div class="map-title">Pitfall</div>
+      <div style="font-size:20px;">💎</div>
+      <div class="map-ttl">Gem Loop</div>
     </div>
-    <button class="reset-btn" onclick="doReset()">reset</button>
+    <button class="rst-btn" onclick="doReset()">reset</button>
   </div>
-  <div class="map-sub">pick a level · complete to unlock next</div>
-  <div class="level-grid" id="level-grid"></div>
+  <div class="map-sub">each pick is a turn · collect across the gap</div>
+  <div class="lvl-grid" id="level-grid"></div>
+  <div style="margin-top:14px;display:flex;gap:14px;font-size:11px;color:var(--fa);flex-wrap:wrap;">
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--am-bg);border:1.5px solid var(--am-br);vertical-align:middle;margin-right:4px;"></span>tap to pick</span>
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pu-bg);border:1.5px solid var(--pu-br);vertical-align:middle;margin-right:4px;"></span>mystery vault</span>
+  </div>
 </div>
 
 <!-- GAME -->
 <div class="screen" id="s-game">
   <div class="g-bar">
-    <button class="g-back" onclick="goMap()">← map</button>
-    <div class="g-name" id="g-name"></div>
-    <button class="g-back" onclick="retryLevel()">retry</button>
+    <button class="g-bk" onclick="goMap()">← map</button>
+    <div class="g-nm" id="g-name"></div>
+    <button class="g-bk" onclick="retryLevel()">retry</button>
   </div>
   <div class="stats">
     <div class="stat"><div class="stat-l">collected</div><div class="stat-v a" id="g-score">0</div></div>
     <div class="stat"><div class="stat-l">target</div><div class="stat-v" id="g-target">—</div></div>
-    <div class="stat"><div class="stat-l">turns left</div><div class="stat-v" id="g-turns">—</div></div>
+    <div class="stat"><div class="stat-l">picks left</div><div class="stat-v" id="g-turns">—</div></div>
   </div>
-  <div class="board-wrap">
+  <div class="brd-wrap">
     <svg id="bsvg"></svg>
     <div id="board"></div>
   </div>
-  <div id="status">tap an amber vault to begin</div>
+  <div id="status">tap an amber vault — each pick is one turn</div>
 </div>
 
-<!-- OVERLAY -->
-<div id="overlay">
-  <div class="ov-card">
-    <div class="ov-stars" id="ov-stars"></div>
-    <div class="ov-title" id="ov-title"></div>
-    <div class="ov-score" id="ov-score"></div>
-    <div class="ov-tgt" id="ov-tgt"></div>
-    <div class="ov-msg" id="ov-msg"></div>
-    <div class="ov-btns">
-      <button class="ob" onclick="retryLevel()">retry</button>
-      <button class="ob" onclick="goMap()">levels</button>
-      <button class="ob p" id="ov-next" onclick="nextLevel()">next →</button>
+<!-- CONFETTI -->
+<div id="confetti-wrap"><canvas id="confetti-canvas"></canvas></div>
+
+<!-- LEVEL COMPLETE OVERLAY -->
+<div id="lc-overlay">
+  <div class="lc-card">
+    <div class="lc-badge">🎉</div>
+    <div class="lc-ttl" id="lc-title"></div>
+    <div class="lc-sub" id="lc-sub"></div>
+    <div class="lc-stars" id="lc-stars"></div>
+    <div class="lc-btns">
+      <button class="lc-btn" onclick="retryLevel()">retry</button>
+      <button class="lc-btn" onclick="goMap()">levels</button>
+      <button class="lc-btn primary" id="lc-next" onclick="nextLevel()">next level →</button>
     </div>
   </div>
 </div>
 
 <script>
 // ── LEVELS (all simulator-verified) ──
-const LEVELS = [
-  {id:1,  name:'First Drop',     loop:'2x4', gems:[2,0,0,0,3,0,0,0], turns:1, target:1},
-  {id:2,  name:'Other Side',     loop:'2x4', gems:[0,0,2,0,0,0,3,0], turns:1, target:1},
-  {id:3,  name:'Your Choice',    loop:'2x4', gems:[3,0,0,0,3,0,0,0], turns:1, target:1},
-  {id:4,  name:'Count Ahead',    loop:'2x4', gems:[4,0,0,0,0,3,0,0], turns:1, target:1},
-  {id:5,  name:'Three Options',  loop:'2x4', gems:[3,0,3,0,0,0,3,0], turns:1, target:1},
-  {id:6,  name:'Pick Wisely',    loop:'2x4', gems:[4,0,0,3,0,0,4,0], turns:1, target:2},
-  {id:7,  name:'Wrap Around',    loop:'2x4', gems:[4,0,3,0,0,3,0,4], turns:1, target:2},
-  {id:8,  name:'Full Loop',      loop:'2x4', gems:[3,3,0,3,0,3,0,3], turns:1, target:2},
-  {id:9,  name:'Two Moves',      loop:'2x4', gems:[4,0,3,0,3,0,4,0], turns:2, target:5},
-  {id:10, name:'Pick Order',     loop:'2x4', gems:[3,0,4,0,0,4,3,0], turns:2, target:4},
-  {id:11, name:'Setup Shot',     loop:'2x4', gems:[4,3,0,3,0,4,0,3], turns:2, target:5},
-  {id:12, name:'Chain Plan',     loop:'2x4', gems:[4,0,3,3,0,4,0,3], turns:2, target:4},
-  {id:13, name:'Three Turns',    loop:'2x4', gems:[4,3,0,3,3,0,4,0], turns:3, target:7},
-  {id:14, name:'Loop Thinking',  loop:'2x4', gems:[4,3,3,0,3,4,0,3], turns:3, target:7},
-  {id:15, name:'Dense Loop',     loop:'2x4', gems:[4,3,2,3,4,2,3,3], turns:3, target:10},
-  {id:16, name:'New Trick',      loop:'2x4', gems:[0,0,2,0,0,3,5,0], turns:1, target:1},
-  {id:17, name:'Find the Chain', loop:'2x4', gems:[0,0,3,0,0,0,4,2], turns:1, target:1},
-  {id:18, name:'Two Paths',      loop:'2x4', gems:[5,0,2,0,0,0,4,3], turns:1, target:2},
-  {id:19, name:'Chain Choice',   loop:'2x4', gems:[4,0,2,3,0,0,4,0], turns:1, target:2},
-  {id:20, name:'Cascade Master', loop:'2x4', gems:[6,0,2,0,0,4,0,5], turns:1, target:1},
-  {id:21, name:'Plan the Chain', loop:'2x4', gems:[5,0,2,0,3,0,4,0], turns:2, target:4},
-  {id:22, name:'Double Up',      loop:'2x4', gems:[4,0,3,2,0,4,0,3], turns:2, target:4},
-  {id:23, name:'Chain Sequence', loop:'2x4', gems:[6,0,0,2,0,0,5,3], turns:2, target:3},
-  {id:24, name:'Wider World',    loop:'2x5', gems:[4,0,0,4,0,0,0,0,0,2], turns:1, target:2},
-  {id:25, name:'New Loop',       loop:'2x5', gems:[4,0,0,4,0,0,4,0,0,4], turns:2, target:4},
+// Ratios: L1-10 ~38-50%, L11-20 ~27-53%, L21-25 ~25-36%
+const LEVELS=[
+  {id:1,  name:'First Drop',   gems:[3,0,0,0,0,4,0,0], turns:1, target:3},
+  {id:2,  name:'Other Side',   gems:[0,3,0,0,0,0,4,0], turns:1, target:3},
+  {id:3,  name:'Far Corner',   gems:[0,0,3,0,0,0,0,3], turns:1, target:3},
+  {id:4,  name:'Bottom Pick',  gems:[4,0,0,0,2,0,0,0], turns:1, target:4},
+  {id:5,  name:'Full Loop',    gems:[0,4,0,0,0,2,0,0], turns:1, target:4},
+  {id:6,  name:'Two Picks',    gems:[3,0,0,0,0,4,0,3], turns:2, target:3},
+  {id:7,  name:'Three Vaults', gems:[4,0,0,3,0,4,0,0], turns:2, target:4},
+  {id:8,  name:'Spread Out',   gems:[3,0,0,0,0,4,3,0], turns:2, target:4},
+  {id:9,  name:'Setup Shot',   gems:[4,0,3,0,0,0,4,0], turns:2, target:4},
+  {id:10, name:'Loop Logic',   gems:[0,4,0,3,0,0,0,4], turns:2, target:4},
+  {id:11, name:'Three Moves',  gems:[3,0,0,0,0,4,0,3], turns:3, target:3},
+  {id:12, name:'Corners',      gems:[3,5,0,0,0,2,0,0], turns:3, target:3},
+  {id:13, name:'Pick Order',   gems:[3,0,4,0,0,4,0,0], turns:3, target:4},
+  {id:14, name:'Diagonal',     gems:[4,0,0,0,3,0,4,0], turns:3, target:4},
+  {id:15, name:'Mid Board',    gems:[0,3,0,4,0,4,0,0], turns:3, target:4},
+  {id:16, name:'Cross Loop',   gems:[4,0,3,0,4,0,0,3], turns:3, target:4},
+  {id:17, name:'Deep Setup',   gems:[0,4,0,3,0,4,3,0], turns:3, target:2},
+  {id:18, name:'Four Vaults',  gems:[3,4,0,0,4,0,0,3], turns:3, target:4},
+  {id:19, name:'Long Chain',   gems:[4,0,3,4,0,0,3,0], turns:3, target:2},
+  {id:20, name:'Master Pick',  gems:[4,3,0,0,3,0,4,3], turns:3, target:5},
+  {id:21, name:'Four Moves',   gems:[4,0,5,3,0,0,0,2], turns:4, target:2},
+  {id:22, name:'Deep Plan',    gems:[3,4,3,0,0,4,0,3], turns:4, target:5},
+  {id:23, name:'Vault Maze',   gems:[4,0,3,4,3,0,4,0], turns:4, target:3},
+  {id:24, name:'Path Master',  gems:[4,3,4,0,3,4,0,3], turns:4, target:2},
+  {id:25, name:'The Mystery',  gems:[0,4,6,0,0,3,0,0], turns:4, target:2, hidden:[2]},
 ];
 
-const LCFG = {
-  '2x4':{n:8, half:4, vs:62, gap:12},
-  '2x5':{n:10,half:5, vs:52, gap:9},
-};
-
-// ── STATE ──
-let board=[], score=0, turnsLeft=0, phase='idle';
-let vState={}, trail=[], pendingV=-1, curLv=null;
+const LCFG={n:8,half:4,vs:62,gap:12};
+let board=[],score=0,turnsLeft=0,phase='idle';
+let vState={},trail=[],curLv=null,hiddenRev={};
 let progress={};
-const DROP=320;
-const delay=ms=>new Promise(r=>setTimeout(r,ms));
+let confettiAnim=null;
+const DROP=300;
+const dl=ms=>new Promise(r=>setTimeout(r,ms));
 
 // ── STORAGE ──
-function loadProg(){ try{progress=JSON.parse(localStorage.getItem('pf_prog')||'{}')}catch(e){progress={}} }
-function saveProg(){ try{localStorage.setItem('pf_prog',JSON.stringify(progress))}catch(e){} }
-function tutDone(){ try{return!!localStorage.getItem('pf_tut')}catch(e){return false} }
-function setTutDone(){ try{localStorage.setItem('pf_tut','1')}catch(e){} }
-function stars(id){ return progress[id]||0; }
-function unlocked(id){ return id===1||(progress[id-1]||0)>=1; }
+function loadProg(){try{progress=JSON.parse(localStorage.getItem('gl2_prog')||'{}')}catch(e){progress={}}}
+function saveProg(){try{localStorage.setItem('gl2_prog',JSON.stringify(progress))}catch(e){}}
+function tutDone(){try{return!!localStorage.getItem('gl2_tut')}catch(e){return false}}
+function setTutDone(){try{localStorage.setItem('gl2_tut','1')}catch(e){}}
+function stars(id){return progress[id]||0}
+function unlocked(id){return id===1||(progress[id-1]||0)>=1}
 
 // ── SCREENS ──
-function show(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-function startFromTitle(){
-  if(tutDone()){show('s-map');renderMap();}
-  else show('s-tutorial');
-}
-function goMap(){
-  document.getElementById('overlay').classList.remove('show');
-  show('s-map'); renderMap();
-}
-function doReset(){
-  if(!confirm('Reset all progress?')) return;
-  progress={};
-  try{localStorage.removeItem('pf_prog');}catch(e){}
-  renderMap();
-}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function startFromTitle(){if(tutDone()){show('s-map');renderMap();}else show('s-tut');}
+function goMap(){stopConfetti();hideLCOverlay();show('s-map');renderMap();}
+function doReset(){if(!confirm('Reset all progress?'))return;progress={};try{localStorage.removeItem('gl2_prog');}catch(e){}renderMap();}
 
 // ── TUTORIAL ──
 let tStep=0;
@@ -365,50 +352,46 @@ function setTStep(n){
   document.getElementById('tprev').style.visibility=n===0?'hidden':'visible';
   document.getElementById('tnext').textContent=n===2?"let's play!":"next →";
 }
-function tutNext(){ if(tStep<2)setTStep(tStep+1); else finishTut(); }
-function tutPrev(){ if(tStep>0)setTStep(tStep-1); }
-function finishTut(){ setTutDone(); show('s-map'); renderMap(); }
+function tutNext(){if(tStep<2)setTStep(tStep+1);else finishTut();}
+function tutPrev(){if(tStep>0)setTStep(tStep-1);}
+function finishTut(){setTutDone();show('s-map');renderMap();}
 
 // ── MAP ──
 function renderMap(){
-  const g=document.getElementById('level-grid');
-  g.innerHTML='';
+  const g=document.getElementById('level-grid');g.innerHTML='';
   LEVELS.forEach(lv=>{
-    const s=stars(lv.id), open=unlocked(lv.id);
+    const s=stars(lv.id),open=unlocked(lv.id);
     const n=document.createElement('div');
     const cls=open?(s>0?'done':'open'):'locked';
-    n.className='lvl-node '+cls;
+    n.className='lvl-nd '+cls;
     n.innerHTML=`<div class="ln-num">${lv.id}</div>
-      <div class="ln-stars ${s?'has':'none'}">${s?'★'.repeat(s)+'☆'.repeat(3-s):'☆☆☆'}</div>`;
-    if(open) n.onclick=()=>startLevel(lv.id);
+      <div class="ln-st ${s?'has':'no'}">${s?'★'.repeat(s)+'☆'.repeat(3-s):'☆☆☆'}</div>`;
+    if(open)n.onclick=()=>startLevel(lv.id);
     g.appendChild(n);
   });
 }
 
 // ── BOARD ──
-function getPos(loop, W){
-  const c=LCFG[loop];
-  const step=c.vs+c.gap;
-  const rw=c.half*c.vs+(c.half-1)*c.gap;
-  const sx=Math.round((W-rw)/2);
-  const ty=18, by=ty+c.vs+48;
-  const p=[];
-  for(let i=0;i<c.half;i++) p[i]={x:sx+i*step,y:ty};
-  for(let i=0;i<c.half;i++) p[c.half+i]={x:sx+(c.half-1-i)*step,y:by};
+function getPos(W){
+  const c=LCFG,step=c.vs+c.gap;
+  const rw=c.half*c.vs+(c.half-1)*c.gap,sx=Math.round((W-rw)/2);
+  const ty=18,by=ty+c.vs+48,p=[];
+  for(let i=0;i<c.half;i++)p[i]={x:sx+i*step,y:ty};
+  for(let i=0;i<c.half;i++)p[c.half+i]={x:sx+(c.half-1-i)*step,y:by};
   return p;
 }
-function bW(){ return document.getElementById('board').offsetWidth||360; }
-function vCx(i){ const c=LCFG[curLv.loop]; return getPos(curLv.loop,bW())[i].x+c.vs/2; }
-function vCy(i){ const c=LCFG[curLv.loop]; return getPos(curLv.loop,bW())[i].y+c.vs/2; }
-function badgeY(i){ const c=LCFG[curLv.loop]; const p=getPos(curLv.loop,bW()); return i<c.half?p[i].y-24:p[i].y+c.vs+4; }
+function bW(){return document.getElementById('board').offsetWidth||360;}
+function vCx(i){return getPos(bW())[i].x+LCFG.vs/2;}
+function vCy(i){return getPos(bW())[i].y+LCFG.vs/2;}
+function badgeY(i){const p=getPos(bW());return i<LCFG.half?p[i].y-24:p[i].y+LCFG.vs+4;}
+function isHidden(i){return curLv.hidden&&curLv.hidden.includes(i)&&!hiddenRev[i];}
 
-function buildSVG(c,p,h,W){
-  const half=c.half,vs=c.vs;
-  const tlx=p[0].x+vs/2, trx=p[half-1].x+vs/2;
-  const ty=p[0].y+vs/2, by=p[half].y+vs/2;
-  const cx=Math.round((tlx+trx)/2), cy=Math.round((ty+by)/2);
-  const rx=Math.round((trx-tlx)/2+vs/2+8);
-  const ry=Math.round((by-ty)/2+10);
+function buildSVG(p,h){
+  const{half,vs}=LCFG;
+  const tlx=p[0].x+vs/2,trx=p[half-1].x+vs/2;
+  const ty=p[0].y+vs/2,by=p[half].y+vs/2;
+  const cx=Math.round((tlx+trx)/2),cy=Math.round((ty+by)/2);
+  const rx=Math.round((trx-tlx)/2+vs/2+8),ry=Math.round((by-ty)/2+10);
   return `<defs>
     <marker id="a1" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C47B1050"/></marker>
     <marker id="a2" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#B8A88A88"/></marker>
@@ -420,28 +403,27 @@ function buildSVG(c,p,h,W){
 
 function renderBoard(){
   const el=document.getElementById('board');
-  const c=LCFG[curLv.loop];
-  const p=getPos(curLv.loop,bW());
-  const h=p[c.half].y+c.vs+18;
+  const p=getPos(bW()),h=p[LCFG.half].y+LCFG.vs+18;
   el.style.height=h+'px';
   el.querySelectorAll('.v,.badge').forEach(e=>e.remove());
-
   const svg=document.getElementById('bsvg');
-  svg.setAttribute('width','100%');
-  svg.setAttribute('height',h);
-  svg.querySelectorAll(':not(defs):not(marker):not(polygon)').forEach(e=>e.remove());
-  svg.innerHTML=buildSVG(c,p,h,bW());
+  svg.setAttribute('height',h);svg.innerHTML=buildSVG(p,h);
 
-  for(let i=0;i<c.n;i++){
-    const {x,y}=p[i];
-    const d=document.createElement('div');
+  for(let i=0;i<LCFG.n;i++){
+    const{x,y}=p[i],d=document.createElement('div');
     d.className='v';
-    d.style.cssText=`left:${x}px;top:${y}px;width:${c.vs}px;height:${c.vs}px;font-size:${c.vs>56?18:15}px;`;
-    if(board[i]===0) d.classList.add('empty');
-    const st=vState[i]; if(st) d.classList.add(st);
-    d.textContent=board[i];
-    if(phase==='pick'&&board[i]>0){ d.classList.add('pickable'); d.onclick=()=>startSow(i); }
-    if(phase==='cascade'&&i===pendingV){ d.classList.add('cascade'); d.onclick=()=>doCascade(); }
+    d.style.cssText=`left:${x}px;top:${y}px;width:${LCFG.vs}px;height:${LCFG.vs}px;font-size:18px;`;
+    const hidden=isHidden(i),st=vState[i];
+    if(st)d.classList.add(st);
+    if(hidden){
+      d.classList.add('hidden');
+      d.innerHTML='<span style="font-size:22px;line-height:1">?</span>';
+      if(phase==='pick')d.onclick=()=>pickVault(i);
+    } else {
+      if(board[i]===0)d.classList.add('empty');
+      d.textContent=board[i];
+      if(phase==='pick'&&board[i]>0){d.classList.add('pickable');d.onclick=()=>pickVault(i);}
+    }
     el.appendChild(d);
   }
   document.getElementById('g-score').textContent=score;
@@ -451,44 +433,46 @@ function renderBoard(){
 }
 
 function addBadge(i,txt,type){
-  const el=document.getElementById('board');
-  const c=LCFG[curLv.loop];
   const b=document.createElement('div');
-  b.className='badge '+type;
-  b.style.left=vCx(i)+'px';
-  b.style.top=badgeY(i)+'px';
-  b.textContent=txt;
-  el.appendChild(b);
+  b.className='badge '+type;b.style.left=vCx(i)+'px';b.style.top=badgeY(i)+'px';b.textContent=txt;
+  document.getElementById('board').appendChild(b);
   requestAnimationFrame(()=>requestAnimationFrame(()=>b.classList.add('show')));
 }
-function clearBadges(){ document.getElementById('board').querySelectorAll('.badge').forEach(b=>b.remove()); }
-
+function clearBadges(){document.getElementById('board').querySelectorAll('.badge').forEach(b=>b.remove());}
 function drawArrow(a,b,col){
-  const svg=document.getElementById('bsvg');
-  const l=document.createElementNS('http://www.w3.org/2000/svg','line');
-  l.setAttribute('x1',vCx(a)); l.setAttribute('y1',vCy(a));
-  l.setAttribute('x2',vCx(b)); l.setAttribute('y2',vCy(b));
-  l.setAttribute('stroke',col==='g'?'#58A04888':'#B8A88A88');
-  l.setAttribute('stroke-width','2');
-  l.setAttribute('stroke-dasharray','5 4');
-  l.setAttribute('marker-end',`url(#a${col==='g'?1:2})`);
-  l.classList.add('ra');
-  svg.appendChild(l);
+  const svg=document.getElementById('bsvg'),l=document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',vCx(a));l.setAttribute('y1',vCy(a));l.setAttribute('x2',vCx(b));l.setAttribute('y2',vCy(b));
+  l.setAttribute('stroke',col==='g'?'#58A04888':'#B8A88A88');l.setAttribute('stroke-width','2');
+  l.setAttribute('stroke-dasharray','5 4');l.setAttribute('marker-end',`url(#a${col==='g'?1:2})`);
+  l.classList.add('ra');svg.appendChild(l);
 }
-function clearArrows(){ document.getElementById('bsvg').querySelectorAll('.ra').forEach(a=>a.remove()); }
-function setSt(t){ document.getElementById('status').textContent=t; }
+function clearArrows(){document.getElementById('bsvg').querySelectorAll('.ra').forEach(a=>a.remove());}
+function setSt(t){document.getElementById('status').textContent=t;}
 
 // ── GAME LOGIC ──
-function nxt(i){ return (i+1)%curLv.gems.length; }
+function nxt(i){return(i+1)%curLv.gems.length;}
+
+async function pickVault(idx){
+  if(phase!=='pick')return;
+  const hidden=isHidden(idx);
+  if(!hidden&&!board[idx])return;
+  phase='sowing';clearBadges();clearArrows();
+  if(hidden){
+    hiddenRev[idx]=true;
+    const k=board[idx];
+    vState={};vState[idx]='hreveal';renderBoard();
+    addBadge(idx,`revealed: ${k} gems!`,'rev');
+    setSt(`mystery vault revealed — ${k} gems inside!`);
+    await dl(750);clearBadges();
+  }
+  await startSow(idx);
+}
 
 async function startSow(idx){
-  if(phase!=='pick'||!board[idx]) return;
-  phase='sowing'; clearBadges(); clearArrows();
-  const k=board[idx]; board[idx]=0;
-  vState={}; trail=[];
-  vState[idx]='source'; renderBoard();
-  setSt(`picked up ${k} gems from vault ${idx+1}…`);
-  await delay(DROP*1.1);
+  const k=board[idx];board[idx]=0;
+  vState={};trail=[];vState[idx]='source';renderBoard();
+  setSt(`picked up ${k} gems — dropping clockwise…`);
+  await dl(DROP*1.1);
   const last=await dropGems(idx,k);
   await resolveEnd(last);
 }
@@ -496,107 +480,134 @@ async function startSow(idx){
 async function dropGems(from,k){
   let cur=from;
   for(let i=0;i<k;i++){
-    cur=nxt(cur); board[cur]++;
-    vState[cur]='dropping'; renderBoard();
-    await delay(DROP);
+    cur=nxt(cur);board[cur]++;
+    vState[cur]='dropping';renderBoard();await dl(DROP);
     vState[cur]='trail';
-    trail.push(cur); if(trail.length>8) trail.shift();
-    trail.forEach(v=>{ if(vState[v]!=='dropping') vState[v]='trail'; });
+    trail.push(cur);if(trail.length>8)trail.shift();
+    trail.forEach(v=>{if(vState[v]!=='dropping')vState[v]='trail';});
   }
   return cur;
 }
 
 async function resolveEnd(lastV){
-  vState={}; renderBoard(); await delay(200);
-  const nx=nxt(lastV), af=nxt(nx);
-  vState[lastV]='lastdrop'; renderBoard();
+  vState={};renderBoard();await dl(200);
+  const nx=nxt(lastV),af=nxt(nx);
+  vState[lastV]='lastdrop';renderBoard();
   addBadge(lastV,'dropped here','stop');
   setSt('checking next vault…');
-  await delay(560);
-  drawArrow(lastV,nx,'a'); await delay(400);
-
-  if(board[nx]>0){
-    pendingV=nx;
-    phase='cascade';
-    vState[nx]='cascade'; renderBoard();
-    addBadge(nx,`${board[nx]} gems — tap!`,'cont');
-    setSt(`vault ${nx+1} has gems — tap it to keep going!`);
-  } else {
-    vState[nx]='nocollect'; renderBoard();
+  await dl(520);drawArrow(lastV,nx,'a');await dl(380);
+  if(board[nx]===0){
+    vState[nx]='nocollect';renderBoard();
     addBadge(nx,'empty','empty');
     setSt('empty! checking vault after…');
-    await delay(560);
-    drawArrow(nx,af,'g'); await delay(400);
+    await dl(500);drawArrow(nx,af,'g');await dl(380);
     if(board[af]>0){
-      const got=board[af]; board[af]=0; score+=got;
-      vState[af]='collected'; renderBoard();
+      const got=board[af];board[af]=0;score+=got;
+      vState[af]='collected';renderBoard();
       addBadge(af,`+${got} collected!`,'collect');
       setSt(`collected ${got} gems!`);
-      await delay(700); endTurn();
+      await dl(650);
     } else {
-      vState[af]='nocollect'; renderBoard();
+      vState[af]='nocollect';renderBoard();
       addBadge(af,'also empty','miss');
-      setSt('no collect this move');
-      await delay(500); endTurn();
+      setSt('both empty — no collect this pick');
+      await dl(450);
     }
+  } else {
+    vState[nx]='nocollect';renderBoard();
+    addBadge(nx,'not empty','miss');
+    setSt('next vault has gems — no collect, pick ends');
+    await dl(450);
   }
-}
-
-async function doCascade(){
-  if(phase!=='cascade'||pendingV===-1) return;
-  clearBadges(); clearArrows();
-  const v=pendingV, k=board[v]; board[v]=0; pendingV=-1;
-  phase='sowing'; vState={}; trail=[];
-  setSt(`picked up ${k} gems — continuing…`);
-  await delay(DROP*1.1);
-  const last=await dropGems(v,k);
-  await resolveEnd(last);
+  endTurn();
 }
 
 function endTurn(){
   turnsLeft--;
-  if(turnsLeft<=0||board.every(g=>g===0)){ showComplete(); return; }
-  phase='pick'; clearBadges(); clearArrows(); vState={};
-  renderBoard();
-  setSt(`${turnsLeft} turn${turnsLeft!==1?'s':''} left — pick your next vault`);
+  if(turnsLeft<=0||board.every(g=>g===0)||score>=curLv.target){showComplete();return;}
+  phase='pick';clearBadges();clearArrows();vState={};renderBoard();
+  setSt(`${turnsLeft} pick${turnsLeft!==1?'s':''} left — choose your next vault`);
 }
 
 function showComplete(){
-  phase='done';
-  const lv=curLv;
+  phase='done';const lv=curLv;
   const s=score>=lv.target?3:score>=Math.round(lv.target*.65)?2:score>0?1:0;
-  if(s>(progress[lv.id]||0)){ progress[lv.id]=s; saveProg(); }
-  const msgs={
-    3:'perfect — you hit the target!',
-    2:`${lv.target-score} short of perfect. try again for 3 stars?`,
-    1:`a collect! try a different starting vault to reach ${lv.target}.`,
-    0:'no collect. find an empty vault with gems in the vault right after it.'
-  };
-  document.getElementById('ov-stars').textContent=s>=3?'★★★':s>=2?'★★☆':s>=1?'★☆☆':'☆☆☆';
-  document.getElementById('ov-title').textContent=s>=3?'level complete':s>0?'good try':'no collect';
-  document.getElementById('ov-score').textContent=score;
-  document.getElementById('ov-tgt').textContent=`gems collected · target ${lv.target}`;
-  document.getElementById('ov-msg').textContent=msgs[s];
-  document.getElementById('ov-next').style.display=(s>=1&&lv.id<25)?'inline-flex':'none';
-  document.getElementById('overlay').classList.add('show');
+  if(s>(progress[lv.id]||0)){progress[lv.id]=s;saveProg();}
+  const hasNext=score>=lv.target&&lv.id<25;
+  document.getElementById('lc-title').textContent=score>=lv.target?`Level ${lv.id} complete!`:'Good try!';
+  document.getElementById('lc-sub').textContent=score>=lv.target
+    ?`You collected ${score} gems in ${lv.turns - turnsLeft} pick${lv.turns-turnsLeft!==1?'s':''}`
+    :`You collected ${score} of ${lv.target} gems. Try again!`;
+  document.getElementById('lc-stars').textContent=s>=3?'★★★':s>=2?'★★☆':s>=1?'★☆☆':'☆☆☆';
+  document.getElementById('lc-next').style.display=hasNext?'inline-flex':'none';
+  document.getElementById('lc-overlay').classList.add('show');
+  if(score>=lv.target)startConfetti();
+}
+
+function hideLCOverlay(){
+  document.getElementById('lc-overlay').classList.remove('show');
+  stopConfetti();
 }
 
 function startLevel(id){
   const lv=LEVELS.find(l=>l.id===id);
-  if(!lv||!unlocked(id)) return;
-  curLv=lv; board=[...lv.gems]; score=0; turnsLeft=lv.turns;
-  phase='idle'; vState={}; trail={}; pendingV=-1;
+  if(!lv||!unlocked(id))return;
+  curLv=lv;board=[...lv.gems];score=0;turnsLeft=lv.turns;
+  phase='idle';vState={};trail=[];hiddenRev={};
+  stopConfetti();hideLCOverlay();
   document.getElementById('g-name').textContent=`${lv.id}. ${lv.name}`;
   document.getElementById('g-target').textContent=lv.target;
-  document.getElementById('overlay').classList.remove('show');
   show('s-game');
-  setTimeout(()=>{ phase='pick'; renderBoard(); setSt('tap an amber vault to begin'); },60);
+  setTimeout(()=>{phase='pick';renderBoard();setSt('tap an amber vault — each pick is one turn');},60);
+}
+function retryLevel(){hideLCOverlay();if(curLv)startLevel(curLv.id);}
+function nextLevel(){hideLCOverlay();if(curLv&&curLv.id<25)startLevel(curLv.id+1);else goMap();}
+
+// ── CONFETTI ──
+function startConfetti(){
+  const wrap=document.getElementById('confetti-wrap');
+  const canvas=document.getElementById('confetti-canvas');
+  wrap.classList.add('show');
+  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+  const ctx=canvas.getContext('2d');
+  const colors=['#C47B10','#E8A83A','#58A048','#6B3FA0','#B84A6E','#2A6618','#FEF3DF'];
+  const pieces=Array.from({length:120},()=>({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height-canvas.height,
+    r:Math.random()*6+3,
+    d:Math.random()*80+40,
+    color:colors[Math.floor(Math.random()*colors.length)],
+    tilt:Math.random()*10-5,
+    ts:Math.random()*.05+.02,
+    tc:0,angle:Math.random()*360,as:Math.random()*3+1,
+    shape:Math.random()>.5?'circle':'rect'
+  }));
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p=>{
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle*Math.PI/180);
+      ctx.fillStyle=p.color;ctx.globalAlpha=.85;
+      if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.r,0,2*Math.PI);ctx.fill();}
+      else{ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);}
+      ctx.restore();
+    });
+    pieces.forEach(p=>{
+      p.y+=2.5;p.x+=Math.sin(p.tc)*1.5;
+      p.tc+=p.ts;p.angle+=p.as;
+      if(p.y>canvas.height+20){p.y=-20;p.x=Math.random()*canvas.width;}
+    });
+    confettiAnim=requestAnimationFrame(draw);
+  }
+  if(confettiAnim)cancelAnimationFrame(confettiAnim);
+  draw();
+}
+function stopConfetti(){
+  if(confettiAnim){cancelAnimationFrame(confettiAnim);confettiAnim=null;}
+  document.getElementById('confetti-wrap').classList.remove('show');
+  const ctx=document.getElementById('confetti-canvas').getContext('2d');
+  ctx.clearRect(0,0,99999,99999);
 }
 
-function retryLevel(){ if(curLv) startLevel(curLv.id); }
-function nextLevel(){ if(curLv&&curLv.id<25) startLevel(curLv.id+1); else goMap(); }
-
-// ── INIT ──
 loadProg();
 </script>
 </body>
