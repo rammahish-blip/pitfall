@@ -15,7 +15,7 @@
   --pu:#6B3FA0;--pu-bg:#F0EAF8;--pu-br:#A07ACC;
 }
 html,body{height:100%;overflow:hidden;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;align-items:center;max-width:420px;margin:0 auto;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;align-items:center;max-width:480px;margin:0 auto;}
 .screen{width:100%;height:100vh;overflow-y:auto;padding:28px 20px 40px;display:none;flex-direction:column;}
 .screen.active{display:flex;}
 
@@ -52,28 +52,34 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);displ
 #s-map{gap:0;}
 .map-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
 .map-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:600;}
+.map-btns{display:flex;gap:6px;}
 .rst-btn{font-size:11px;color:var(--fa);background:none;border:1px solid var(--br);border-radius:6px;padding:4px 10px;cursor:pointer;font-family:'DM Sans',sans-serif;}
 .map-sub{font-size:12px;color:var(--mu);margin-bottom:18px;}
-.lvl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.lvl-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
 .lvl-nd{aspect-ratio:1;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1.5px solid var(--br);background:var(--sf);transition:transform .12s;position:relative;}
 .lvl-nd.open{border-color:var(--am-br);cursor:pointer;}
 .lvl-nd.open:active{transform:scale(.96);}
 .lvl-nd.done{border-color:var(--gn-br);cursor:pointer;}
+.lvl-nd.done:active{transform:scale(.96);}
 .lvl-nd.locked{opacity:.38;pointer-events:none;background:var(--sf2);}
-.ln-num{font-family:'Fraunces',serif;font-size:18px;font-weight:600;}
-.ln-st{font-size:10px;letter-spacing:1px;margin-top:2px;}
+.lvl-nd.challenge{border-color:#E8A83A;background:#FFFBF0;}
+.lvl-nd.challenge.done{border-color:var(--gn-br);background:var(--gn-bg);}
+.ln-num{font-family:'Fraunces',serif;font-size:16px;font-weight:600;}
+.ln-st{font-size:9px;letter-spacing:1px;margin-top:2px;}
 .ln-st.has{color:var(--am-br);}
 .ln-st.no{color:var(--fa);}
+.ln-badge{font-size:8px;font-weight:600;padding:1px 4px;border-radius:3px;margin-top:2px;background:#FEF3DF;color:var(--am);border:1px solid var(--am-br);}
 
 /* GAME */
-#s-game{padding-top:20px;gap:0;}
-.g-bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+#s-game{padding-top:18px;gap:0;}
+.g-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
 .g-bk{background:none;border:1px solid var(--br);border-radius:8px;padding:5px 12px;font-size:12px;color:var(--mu);cursor:pointer;font-family:'DM Sans',sans-serif;}
-.g-nm{font-family:'Fraunces',serif;font-size:16px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.stats{display:flex;gap:8px;margin-bottom:10px;}
-.stat{flex:1;background:var(--sf);border:1px solid var(--br);border-radius:10px;padding:8px 10px;text-align:center;}
-.stat-l{font-size:10px;color:var(--fa);letter-spacing:.05em;text-transform:uppercase;}
-.stat-v{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-top:1px;}
+.g-nm{font-family:'Fraunces',serif;font-size:15px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.g-chal{font-size:10px;font-weight:600;color:var(--am);background:var(--am-bg);border:1px solid var(--am-br);border-radius:4px;padding:2px 6px;}
+.stats{display:flex;gap:6px;margin-bottom:8px;}
+.stat{flex:1;background:var(--sf);border:1px solid var(--br);border-radius:10px;padding:7px 8px;text-align:center;}
+.stat-l{font-size:9px;color:var(--fa);letter-spacing:.05em;text-transform:uppercase;}
+.stat-v{font-family:'Fraunces',serif;font-size:19px;font-weight:600;margin-top:1px;}
 .stat-v.a{color:var(--am);}
 .stat-v.g{color:var(--gn);}
 .brd-wrap{position:relative;width:100%;background:var(--sf);border:1px solid var(--br);border-radius:16px;overflow:hidden;}
@@ -88,7 +94,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);displ
 .v.pickable:active{transform:scale(1.08);}
 .v.hidden{border:2px solid var(--pu-br);background:var(--pu-bg);color:var(--pu);cursor:pointer;animation:hpulse 1.5s ease-in-out infinite;}
 .v.hidden:active{transform:scale(1.08);}
-.v.hreveal{border:2px solid var(--pu-br);background:var(--pu-bg);animation:reveal .5s ease-out forwards;}
+.v.hreveal{border:2px solid var(--pu-br);background:var(--pu-bg);animation:reveal .45s ease-out forwards;}
 .v.source{border:2px solid #8A5000;background:var(--am-bg);color:#8A5000;}
 .v.dropping{border:2.5px solid var(--am-br);background:var(--am-bg);color:#8A5000;}
 .v.trail{border:1px dashed #E8C07050;opacity:.5;}
@@ -96,7 +102,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);displ
 .v.collected{border:2.5px solid var(--gn-br);background:var(--gn-bg);color:var(--gn);}
 .v.nocollect{border:1.5px dashed var(--br);opacity:.5;}
 @keyframes hpulse{0%,100%{box-shadow:0 0 0 3px var(--pu-bg)}50%{box-shadow:0 0 0 8px transparent}}
-@keyframes reveal{0%{transform:scale(1.2)}60%{transform:scale(.95)}100%{transform:scale(1)}}
+@keyframes reveal{0%{transform:scale(1.25)}60%{transform:scale(.95)}100%{transform:scale(1)}}
 
 /* BADGES */
 .badge{position:absolute;border-radius:20px;padding:2px 9px;font-size:11px;font-weight:500;white-space:nowrap;pointer-events:none;z-index:10;border:1px solid;opacity:0;transform:translateY(4px) translateX(-50%);transition:opacity .28s,transform .28s;}
@@ -107,20 +113,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);displ
 .badge.miss{background:var(--sf2);border-color:var(--br);color:var(--fa);}
 .badge.rev{background:var(--pu-bg);border-color:var(--pu-br);color:var(--pu);font-weight:600;}
 
-/* CONFETTI OVERLAY */
+/* CONFETTI */
 #confetti-wrap{display:none;position:fixed;inset:0;z-index:200;pointer-events:none;}
 #confetti-wrap.show{display:block;}
-canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
+#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
 
-/* LEVEL COMPLETE OVERLAY */
+/* LEVEL COMPLETE */
 #lc-overlay{display:none;position:fixed;inset:0;z-index:300;align-items:center;justify-content:center;padding:24px;}
 #lc-overlay.show{display:flex;}
-.lc-card{background:var(--sf);border-radius:20px;padding:32px 28px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(20,14,4,.3);animation:cardpop .4s cubic-bezier(.175,.885,.32,1.275) forwards;}
+.lc-bg{position:absolute;inset:0;background:rgba(20,14,4,.5);}
+.lc-card{position:relative;background:var(--sf);border-radius:20px;padding:32px 28px;width:100%;max-width:340px;text-align:center;box-shadow:0 20px 60px rgba(20,14,4,.3);animation:cardpop .4s cubic-bezier(.175,.885,.32,1.275) forwards;}
 @keyframes cardpop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
-.lc-badge{font-size:48px;margin-bottom:8px;}
-.lc-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--tx);margin-bottom:4px;}
-.lc-sub{font-size:13px;color:var(--mu);margin-bottom:20px;}
-.lc-stars{font-size:32px;letter-spacing:6px;color:var(--am-br);margin-bottom:20px;}
+.lc-emoji{font-size:52px;margin-bottom:8px;display:block;}
+.lc-ttl{font-family:'Fraunces',serif;font-size:26px;font-weight:700;margin-bottom:4px;}
+.lc-sub{font-size:13px;color:var(--mu);margin-bottom:16px;}
+.lc-stars{font-size:34px;letter-spacing:6px;color:var(--am-br);margin-bottom:20px;}
 .lc-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
 .lc-btn{padding:10px 18px;border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;border:1.5px solid var(--br);background:var(--sf);color:var(--mu);}
 .lc-btn.primary{background:var(--am);border-color:var(--am);color:#fff;}
@@ -139,28 +146,19 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
       <div class="t-gem g">2</div>
     </div>
     <button class="btn-play" onclick="startFromTitle()">play</button>
-    <div class="t-note">25 levels · each pick is a turn · pure strategy</div>
+    <div class="t-note">100 levels · each pick is a turn · pure strategy</div>
   </div>
 </div>
 
 <!-- TUTORIAL -->
 <div class="screen" id="s-tut">
-  <div class="tut-hdr">
-    <div class="tut-ttl">how to play</div>
-    <div class="tut-skip" onclick="finishTut()">skip</div>
-  </div>
-  <div class="tut-dots">
-    <div class="tut-dot on" id="d0"></div>
-    <div class="tut-dot" id="d1"></div>
-    <div class="tut-dot" id="d2"></div>
-  </div>
-
+  <div class="tut-hdr"><div class="tut-ttl">how to play</div><div class="tut-skip" onclick="finishTut()">skip</div></div>
+  <div class="tut-dots"><div class="tut-dot on" id="d0"></div><div class="tut-dot" id="d1"></div><div class="tut-dot" id="d2"></div></div>
   <div class="tut-step on" id="t0">
     <div class="tut-illus">
       <svg width="280" height="108" viewBox="0 0 280 108">
         <defs><marker id="ma" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#C47B1088"/></marker></defs>
         <rect x="18" y="18" width="244" height="72" rx="28" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
-        <!-- Clockwise arrows: bottom L→R, right side up, top R→L, left side down -->
         <line x1="108" y1="90" x2="148" y2="90" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
         <line x1="260" y1="68" x2="260" y2="42" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
         <line x1="172" y1="22" x2="132" y2="22" stroke="#C47B1060" stroke-width="1.5" marker-end="url(#ma)"/>
@@ -178,9 +176,8 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
       </svg>
     </div>
     <div class="tut-h">each pick is one turn</div>
-    <div class="tut-p">Tap any <b>amber vault</b>. All its gems drop one-by-one <b>clockwise around the loop</b>. That's your full turn. You have a limited number of picks — choose carefully to hit your target.</div>
+    <div class="tut-p">Tap any <b>amber vault</b>. All its gems drop one-by-one <b>clockwise around the loop</b>. That counts as your full turn. You have a limited number of picks — plan ahead to hit your target.</div>
   </div>
-
   <div class="tut-step" id="t1">
     <div class="tut-illus">
       <svg width="280" height="108" viewBox="0 0 280 108">
@@ -200,13 +197,12 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
         <text x="172" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="15" font-weight="700" fill="#2A6618">5</text>
         <rect x="194" y="78" width="70" height="20" rx="10" fill="#E4F2DF" stroke="#58A048" stroke-width="1"/>
         <text x="229" y="92" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#2A6618">+5 gems!</text>
-        <text x="108" y="106" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">if next vault is NOT empty — no collect, turn ends</text>
+        <text x="140" y="107" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#B8A88A">if next vault is NOT empty → no collect, turn ends</text>
       </svg>
     </div>
     <div class="tut-h">collect across the gap</div>
-    <div class="tut-p">After your last gem drops — if the <b>next vault is empty</b> and the vault after it has gems, you <b>collect them all!</b> If the next vault has gems, the turn ends with no collect. Plan your picks to land in the right spot.</div>
+    <div class="tut-p">After your last gem drops — if the <b>next vault is empty</b> and the vault after has gems, you <b>collect them all!</b> If the next vault has gems, the turn ends with no collect. Plan your drops carefully.</div>
   </div>
-
   <div class="tut-step" id="t2">
     <div class="tut-illus">
       <svg width="280" height="108" viewBox="0 0 280 108">
@@ -227,9 +223,8 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
       </svg>
     </div>
     <div class="tut-h">mystery vaults</div>
-    <div class="tut-p">Later levels have <b style="color:var(--pu)">mystery vaults</b> — you don't know how many gems are inside. Tap them anyway — <b>the count reveals the moment you pick</b>, then gems drop as normal. Risk or safety — your call.</div>
+    <div class="tut-p">Some levels have <b style="color:var(--pu)">mystery vaults</b> — you can't see how many gems are inside. Tap them anyway — <b>the count reveals the moment you pick</b>, then gems drop as normal. Risk it or play safe — your call.</div>
   </div>
-
   <div class="tut-nav">
     <button class="btn-gh" id="tprev" onclick="tutPrev()" style="visibility:hidden;">← back</button>
     <button class="btn-nx" id="tnext" onclick="tutNext()">next →</button>
@@ -239,17 +234,18 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
 <!-- MAP -->
 <div class="screen" id="s-map">
   <div class="map-hdr">
-    <div style="display:flex;align-items:center;gap:10px;">
-      <div style="font-size:20px;">💎</div>
-      <div class="map-ttl">Gem Loop</div>
+    <div style="display:flex;align-items:center;gap:10px;"><div style="font-size:20px;">💎</div><div class="map-ttl">Gem Loop</div></div>
+    <div class="map-btns">
+      <button class="rst-btn" id="test-btn" onclick="toggleTest()" style="border-color:var(--pu-br);color:var(--pu);">test: off</button>
+      <button class="rst-btn" onclick="doReset()">reset</button>
     </div>
-    <button class="rst-btn" onclick="doReset()">reset</button>
   </div>
   <div class="map-sub">each pick is a turn · collect across the gap</div>
   <div class="lvl-grid" id="level-grid"></div>
-  <div style="margin-top:14px;display:flex;gap:14px;font-size:11px;color:var(--fa);flex-wrap:wrap;">
+  <div style="margin-top:12px;display:flex;gap:12px;font-size:11px;color:var(--fa);flex-wrap:wrap;">
     <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--am-bg);border:1.5px solid var(--am-br);vertical-align:middle;margin-right:4px;"></span>tap to pick</span>
     <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pu-bg);border:1.5px solid var(--pu-br);vertical-align:middle;margin-right:4px;"></span>mystery vault</span>
+    <span><span style="display:inline-block;width:10px;height:10px;border-radius:4px;background:#FFFBF0;border:1.5px solid var(--am-br);vertical-align:middle;margin-right:4px;"></span>challenge</span>
   </div>
 </div>
 
@@ -258,6 +254,7 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
   <div class="g-bar">
     <button class="g-bk" onclick="goMap()">← map</button>
     <div class="g-nm" id="g-name"></div>
+    <span class="g-chal" id="g-chal" style="display:none;">★ CHALLENGE</span>
     <button class="g-bk" onclick="retryLevel()">retry</button>
   </div>
   <div class="stats">
@@ -265,85 +262,173 @@ canvas#confetti-canvas{position:absolute;inset:0;width:100%;height:100%;}
     <div class="stat"><div class="stat-l">target</div><div class="stat-v" id="g-target">—</div></div>
     <div class="stat"><div class="stat-l">picks left</div><div class="stat-v" id="g-turns">—</div></div>
   </div>
-  <div class="brd-wrap">
-    <svg id="bsvg"></svg>
-    <div id="board"></div>
-  </div>
+  <div class="brd-wrap"><svg id="bsvg"></svg><div id="board"></div></div>
   <div id="status">tap an amber vault — each pick is one turn</div>
 </div>
 
 <!-- CONFETTI -->
 <div id="confetti-wrap"><canvas id="confetti-canvas"></canvas></div>
 
-<!-- LEVEL COMPLETE OVERLAY -->
+<!-- LEVEL COMPLETE -->
 <div id="lc-overlay">
+  <div class="lc-bg" onclick=""></div>
   <div class="lc-card">
-    <div class="lc-badge">🎉</div>
-    <div class="lc-ttl" id="lc-title"></div>
+    <span class="lc-emoji" id="lc-emoji">🎉</span>
+    <div class="lc-ttl" id="lc-ttl"></div>
     <div class="lc-sub" id="lc-sub"></div>
     <div class="lc-stars" id="lc-stars"></div>
     <div class="lc-btns">
       <button class="lc-btn" onclick="retryLevel()">retry</button>
       <button class="lc-btn" onclick="goMap()">levels</button>
-      <button class="lc-btn primary" id="lc-next" onclick="nextLevel()">next level →</button>
+      <button class="lc-btn primary" id="lc-next" onclick="nextLevel()">next →</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── LEVELS (all simulator-verified) ──
-// Ratios: L1-10 ~38-50%, L11-20 ~27-53%, L21-25 ~25-36%
+// ── ALL 100 LEVELS ──
 const LEVELS=[
-  {id:1,  name:'First Drop',   gems:[3,0,0,0,0,4,0,0], turns:1, target:3},
-  {id:2,  name:'Other Side',   gems:[0,3,0,0,0,0,4,0], turns:1, target:3},
-  {id:3,  name:'Far Corner',   gems:[0,0,3,0,0,0,0,3], turns:1, target:3},
-  {id:4,  name:'Bottom Pick',  gems:[4,0,0,0,2,0,0,0], turns:1, target:4},
-  {id:5,  name:'Full Loop',    gems:[0,4,0,0,0,2,0,0], turns:1, target:4},
-  {id:6,  name:'Two Picks',    gems:[3,0,0,0,0,4,0,3], turns:2, target:3},
-  {id:7,  name:'Three Vaults', gems:[4,0,0,3,0,4,0,0], turns:2, target:4},
-  {id:8,  name:'Spread Out',   gems:[3,0,0,0,0,4,3,0], turns:2, target:4},
-  {id:9,  name:'Setup Shot',   gems:[4,0,3,0,0,0,4,0], turns:2, target:4},
-  {id:10, name:'Loop Logic',   gems:[0,4,0,3,0,0,0,4], turns:2, target:4},
-  {id:11, name:'Three Moves',  gems:[3,0,0,0,0,4,0,3], turns:3, target:3},
-  {id:12, name:'Corners',      gems:[3,5,0,0,0,2,0,0], turns:3, target:3},
-  {id:13, name:'Pick Order',   gems:[3,0,4,0,0,4,0,0], turns:3, target:4},
-  {id:14, name:'Diagonal',     gems:[4,0,0,0,3,0,4,0], turns:3, target:4},
-  {id:15, name:'Mid Board',    gems:[0,3,0,4,0,4,0,0], turns:3, target:4},
-  {id:16, name:'Cross Loop',   gems:[4,0,3,0,4,0,0,3], turns:3, target:4},
-  {id:17, name:'Deep Setup',   gems:[0,4,0,3,0,4,3,0], turns:3, target:2},
-  {id:18, name:'Four Vaults',  gems:[3,4,0,0,4,0,0,3], turns:3, target:4},
-  {id:19, name:'Long Chain',   gems:[4,0,3,4,0,0,3,0], turns:3, target:2},
-  {id:20, name:'Master Pick',  gems:[4,3,0,0,3,0,4,3], turns:3, target:5},
-  {id:21, name:'Four Moves',   gems:[4,0,5,3,0,0,0,2], turns:4, target:2},
-  {id:22, name:'Deep Plan',    gems:[3,4,3,0,0,4,0,3], turns:4, target:5},
-  {id:23, name:'Vault Maze',   gems:[4,0,3,4,3,0,4,0], turns:4, target:3},
-  {id:24, name:'Path Master',  gems:[4,3,4,0,3,4,0,3], turns:4, target:2},
-  {id:25, name:'The Mystery',  gems:[0,4,6,0,0,3,0,0], turns:4, target:2, hidden:[2]},
+  // LEVELS 1-25 (2x4 loop)
+  {id:1,  name:'First Drop',   loop:'2x4', gems:[3,0,0,0,0,4,0,0], turns:1, target:3},
+  {id:2,  name:'Other Side',   loop:'2x4', gems:[0,3,0,0,0,0,4,0], turns:1, target:3},
+  {id:3,  name:'Far Corner',   loop:'2x4', gems:[0,0,3,0,0,0,0,3], turns:1, target:3},
+  {id:4,  name:'Bottom Pick',  loop:'2x4', gems:[4,0,0,0,2,0,0,0], turns:1, target:4},
+  {id:5,  name:'Full Loop',    loop:'2x4', gems:[0,4,0,0,0,2,0,0], turns:1, target:4},
+  {id:6,  name:'Two Picks',    loop:'2x4', gems:[3,0,0,0,0,4,0,3], turns:2, target:3},
+  {id:7,  name:'Three Vaults', loop:'2x4', gems:[4,0,0,3,0,4,0,0], turns:2, target:4},
+  {id:8,  name:'Spread Out',   loop:'2x4', gems:[3,0,0,0,0,4,3,0], turns:2, target:4},
+  {id:9,  name:'Setup Shot',   loop:'2x4', gems:[4,0,3,0,0,0,4,0], turns:2, target:4},
+  {id:10, name:'Loop Logic',   loop:'2x4', gems:[0,4,0,3,0,0,0,4], turns:2, target:4},
+  {id:11, name:'Three Moves',  loop:'2x4', gems:[3,0,0,0,0,4,0,3], turns:3, target:3},
+  {id:12, name:'Corners',      loop:'2x4', gems:[3,5,0,0,0,2,0,0], turns:3, target:3},
+  {id:13, name:'Pick Order',   loop:'2x4', gems:[3,0,4,0,0,4,0,0], turns:3, target:4},
+  {id:14, name:'Diagonal',     loop:'2x4', gems:[4,0,0,0,3,0,4,0], turns:3, target:4},
+  {id:15, name:'Mid Board',    loop:'2x4', gems:[0,3,0,4,0,4,0,0], turns:3, target:4},
+  {id:16, name:'Cross Loop',   loop:'2x4', gems:[4,0,3,0,4,0,0,3], turns:3, target:4},
+  {id:17, name:'Deep Setup',   loop:'2x4', gems:[0,4,0,3,0,4,3,0], turns:3, target:2},
+  {id:18, name:'Four Vaults',  loop:'2x4', gems:[3,4,0,0,4,0,0,3], turns:3, target:4},
+  {id:19, name:'Long Chain',   loop:'2x4', gems:[4,0,3,4,0,0,3,0], turns:3, target:2},
+  {id:20, name:'Master Pick',  loop:'2x4', gems:[4,3,0,0,3,0,4,3], turns:3, target:5},
+  {id:21, name:'Four Moves',   loop:'2x4', gems:[4,0,5,3,0,0,0,2], turns:4, target:2},
+  {id:22, name:'Deep Plan',    loop:'2x4', gems:[3,4,3,0,0,4,0,3], turns:4, target:5},
+  {id:23, name:'Vault Maze',   loop:'2x4', gems:[4,0,3,4,3,0,4,0], turns:4, target:3},
+  {id:24, name:'Path Master',  loop:'2x4', gems:[4,3,4,0,3,4,0,3], turns:4, target:2},
+  {id:25, name:'The Mystery',  loop:'2x4', gems:[0,4,6,0,0,3,0,0], turns:4, target:2, hidden:[2]},
+  // LEVELS 26-100
+  {id:26, name:'Wider Search', loop:'2x4', gems:[3,4,0,0,0,0,0,6], turns:4, target:5},
+  {id:27, name:'Vault Dance',  loop:'2x4', gems:[4,5,7,0,7,0,0,0], turns:4, target:4},
+  {id:28, name:'Loop Master',  loop:'2x4', gems:[3,0,5,0,0,0,0,6], turns:4, target:3},
+  {id:29, name:'Hidden Path',  loop:'2x4', gems:[3,3,0,0,6,0,0,0], turns:4, target:2},
+  {id:30, name:'Mystery Turn', loop:'2x4', gems:[3,5,0,0,0,6,0,0], turns:4, target:4, hidden:[1]},
+  {id:31, name:'Four Deep',    loop:'2x4', gems:[7,6,5,0,0,0,0,6], turns:4, target:8},
+  {id:32, name:'Corner Play',  loop:'2x4', gems:[7,7,2,0,0,7,0,0], turns:4, target:5},
+  {id:33, name:'Long View',    loop:'2x4', gems:[0,2,3,7,0,0,0,5], turns:4, target:3},
+  {id:34, name:'Arc Shot',     loop:'2x4', gems:[0,3,5,0,3,3,0,0], turns:4, target:4},
+  {id:35, name:'New Angle',    loop:'2x4', gems:[0,7,3,4,0,0,0,0], turns:4, target:8},
+  {id:36, name:'Cross Pick',   loop:'2x4', gems:[0,5,3,0,0,0,0,3], turns:4, target:3},
+  {id:37, name:'Far Reach',    loop:'2x4', gems:[0,7,2,4,0,0,0,0], turns:4, target:8},
+  {id:38, name:'Split Path',   loop:'2x4', gems:[4,0,0,5,0,7,0,2], turns:4, target:4},
+  {id:39, name:'Loop Twist',   loop:'2x4', gems:[0,0,2,5,6,0,0,0], turns:4, target:3},
+  {id:40, name:'End Game',     loop:'2x4', gems:[0,0,5,5,0,6,7,0], turns:4, target:5},
+  {id:41, name:'New Loop',     loop:'2x5', gems:[0,4,0,0,5,3,0,0,0,2], turns:4, target:3, hidden:[9]},
+  {id:42, name:'Five Points',  loop:'2x5', gems:[4,5,0,0,0,0,7,0,0,5], turns:3, target:4, hidden:[0]},
+  {id:43, name:'Loop Wide',    loop:'2x5', gems:[6,5,0,0,4,0,0,0,6,0], turns:4, target:7},
+  {id:44, name:'Three Pick',   loop:'2x5', gems:[6,3,0,0,0,0,0,2,0,0], turns:4, target:2},
+  {id:45, name:'Spread Five',  loop:'2x5', gems:[4,0,0,0,0,3,0,3,0,0], turns:3, target:2},
+  {id:46, name:'Arc Five',     loop:'2x5', gems:[0,0,0,3,0,0,0,4,7,4], turns:3, target:4, hidden:[9]},
+  {id:47, name:'Five Hunt',    loop:'2x5', gems:[7,6,0,5,0,0,0,0,3,0], turns:3, target:6},
+  {id:48, name:'Corner Five',  loop:'2x5', gems:[5,0,0,2,0,0,6,7,0,0], turns:3, target:3},
+  {id:49, name:'Wide Setup',   loop:'2x5', gems:[2,3,2,5,0,0,0,0,0,0], turns:4, target:3},
+  {id:50, name:'Challenge I',  loop:'2x5', gems:[0,5,7,0,0,4,0,5,0,0], turns:4, target:6, hidden:[2], challenge:true},
+  {id:51, name:'Chain Five',   loop:'2x5', gems:[2,3,0,2,0,0,0,0,3,0], turns:4, target:3},
+  {id:52, name:'Five Deep',    loop:'2x5', gems:[0,0,0,0,4,0,6,0,0,6], turns:3, target:3},
+  {id:53, name:'Arc Search',   loop:'2x5', gems:[0,4,7,0,0,0,7,3,0,0], turns:3, target:4},
+  {id:54, name:'Five Cross',   loop:'2x5', gems:[2,0,0,0,4,0,0,0,2,2], turns:3, target:2, hidden:[9]},
+  {id:55, name:'Twin Mystery', loop:'2x5', gems:[0,0,0,7,0,6,0,0,0,4], turns:4, target:5, hidden:[3,5]},
+  {id:56, name:'Loop Five',    loop:'2x5', gems:[0,0,4,0,0,0,0,2,3,0], turns:4, target:2},
+  {id:57, name:'Far Five',     loop:'2x5', gems:[0,3,0,0,0,0,0,6,4,0], turns:4, target:3},
+  {id:58, name:'Wide Hunt',    loop:'2x5', gems:[2,5,0,0,2,0,0,0,0,7], turns:4, target:4},
+  {id:59, name:'Five Master',  loop:'2x5', gems:[6,7,0,2,0,0,0,2,0,0], turns:4, target:5, hidden:[3]},
+  {id:60, name:'Challenge II', loop:'2x5', gems:[0,5,0,0,0,0,4,0,5,0], turns:4, target:4, hidden:[1], challenge:true},
+  {id:61, name:'Six Paths',    loop:'2x5', gems:[0,0,6,6,0,5,0,0,7,0], turns:5, target:6},
+  {id:62, name:'Five Arc',     loop:'2x5', gems:[5,3,0,0,4,0,0,0,0,0], turns:4, target:5, hidden:[4]},
+  {id:63, name:'Deep Five',    loop:'2x5', gems:[0,0,0,6,0,0,0,5,4,6], turns:5, target:5},
+  {id:64, name:'Wide Five',    loop:'2x5', gems:[0,0,0,0,0,7,2,4,2,0], turns:5, target:3},
+  {id:65, name:'Four Hunt',    loop:'2x5', gems:[5,0,0,0,2,0,0,5,0,0], turns:4, target:5},
+  {id:66, name:'Loop Hunt',    loop:'2x5', gems:[0,0,5,2,0,0,0,0,3,0], turns:5, target:3},
+  {id:67, name:'Five Wide',    loop:'2x5', gems:[2,4,0,0,0,2,3,0,0,0], turns:4, target:2},
+  {id:68, name:'Twin Arc',     loop:'2x5', gems:[3,0,0,4,3,0,0,0,0,6], turns:4, target:5, hidden:[4,3]},
+  {id:69, name:'Five Deep',    loop:'2x5', gems:[7,0,0,0,0,0,2,0,0,2], turns:4, target:3},
+  {id:70, name:'Wide Master',  loop:'2x5', gems:[0,0,0,4,0,6,0,5,0,5], turns:5, target:5},
+  {id:71, name:'Five Turn',    loop:'2x5', gems:[0,6,0,0,0,0,7,0,6,6], turns:5, target:5},
+  {id:72, name:'Deep Hunt',    loop:'2x5', gems:[0,4,4,3,0,0,3,0,0,0], turns:4, target:4},
+  {id:73, name:'Four Arc',     loop:'2x5', gems:[4,7,2,0,0,3,0,0,0,0], turns:5, target:6},
+  {id:74, name:'Long Five',    loop:'2x5', gems:[5,2,0,0,4,0,0,0,0,3], turns:5, target:3},
+  {id:75, name:'Challenge III',loop:'2x5', gems:[6,5,0,0,0,0,3,0,5,0], turns:4, target:6, hidden:[8,6], challenge:true},
+  {id:76, name:'Wide Loop',    loop:'2x5', gems:[0,4,7,0,0,0,0,7,4,0], turns:5, target:6},
+  {id:77, name:'Arc Hunt',     loop:'2x5', gems:[0,0,6,4,6,0,0,0,7,0], turns:5, target:6},
+  {id:78, name:'Five Reach',   loop:'2x5', gems:[0,0,5,7,0,3,0,0,3,0], turns:5, target:5, hidden:[2]},
+  {id:79, name:'Loop Deep',    loop:'2x5', gems:[0,0,0,0,0,0,7,6,0,4], turns:5, target:5},
+  {id:80, name:'Four Wide',    loop:'2x5', gems:[3,0,0,0,0,3,3,0,2,0], turns:4, target:4},
+  {id:81, name:'Six Loop',     loop:'2x6', gems:[4,0,0,4,0,4,7,0,0,0,0,0], turns:5, target:5},
+  {id:82, name:'Wide Six',     loop:'2x6', gems:[2,0,0,7,0,0,0,0,0,0,0,3], turns:5, target:3},
+  {id:83, name:'Arc Six',      loop:'2x6', gems:[5,5,7,0,0,0,0,0,2,0,4,0], turns:4, target:5},
+  {id:84, name:'Deep Six',     loop:'2x6', gems:[0,0,0,3,0,0,0,0,3,0,0,4], turns:5, target:2, hidden:[3]},
+  {id:85, name:'Six Hunt',     loop:'2x6', gems:[0,0,0,6,7,0,0,7,0,3,2,0], turns:5, target:5},
+  {id:86, name:'Six Wide',     loop:'2x6', gems:[0,0,0,0,0,0,0,6,2,0,7,4], turns:5, target:5, hidden:[7]},
+  {id:87, name:'Six Master',   loop:'2x6', gems:[7,7,0,0,0,0,0,0,0,7,0,2], turns:4, target:4},
+  {id:88, name:'Six Cross',    loop:'2x6', gems:[0,0,0,0,4,4,0,2,0,4,0,0], turns:5, target:4},
+  {id:89, name:'Six Arc',      loop:'2x6', gems:[2,0,2,3,0,4,0,0,0,0,0,0], turns:5, target:2, hidden:[0]},
+  {id:90, name:'Six Turn',     loop:'2x6', gems:[2,0,0,0,0,0,0,3,2,0,0,0], turns:5, target:2, hidden:[0]},
+  {id:91, name:'Six Deep',     loop:'2x6', gems:[0,0,0,0,0,0,3,3,3,0,5,0], turns:4, target:3},
+  {id:92, name:'Six Path',     loop:'2x6', gems:[3,7,0,6,0,0,0,0,0,0,5,0], turns:5, target:5},
+  {id:93, name:'Six Setup',    loop:'2x6', gems:[0,3,0,0,6,0,0,0,2,0,0,0], turns:4, target:2},
+  {id:94, name:'Six Flow',     loop:'2x6', gems:[7,4,7,0,0,0,0,0,0,0,0,0], turns:5, target:4},
+  {id:95, name:'Six Curve',    loop:'2x6', gems:[0,0,3,0,0,0,0,3,0,0,0,2], turns:5, target:3},
+  {id:96, name:'Six Far',      loop:'2x6', gems:[0,0,0,0,0,0,3,3,0,0,0,5], turns:5, target:5, hidden:[7]},
+  {id:97, name:'Six Reach',    loop:'2x6', gems:[0,0,0,0,0,0,2,0,0,0,5,4], turns:5, target:3, hidden:[6]},
+  {id:98, name:'Six Chain',    loop:'2x6', gems:[0,2,6,0,6,0,0,0,0,0,6,0], turns:4, target:3},
+  {id:99, name:'Six Climb',    loop:'2x6', gems:[0,0,7,0,0,0,0,5,0,6,0,4], turns:5, target:6},
+  {id:100,name:'Grand Master', loop:'2x6', gems:[0,0,4,6,0,0,0,0,0,7,5,0], turns:5, target:5, hidden:[2,3], challenge:true},
 ];
 
-const LCFG={n:8,half:4,vs:62,gap:12};
+// Loop configs
+const LCFG={
+  '2x4':{n:8, half:4, vs:56, gap:10},
+  '2x5':{n:10,half:5, vs:46, gap:8},
+  '2x6':{n:12,half:6, vs:38, gap:7},
+};
+
 let board=[],score=0,turnsLeft=0,phase='idle';
-let vState={},trail=[],curLv=null,hiddenRev={};
-let progress={};
-let confettiAnim=null;
-const DROP=300;
+let vState={},trail=[],curLv=null,hidRev={};
+let progress={},testMode=false;
+let confAnim=null,isChalWin=false;
+const DROP=290;
 const dl=ms=>new Promise(r=>setTimeout(r,ms));
 
-// ── STORAGE ──
-function loadProg(){try{progress=JSON.parse(localStorage.getItem('gl2_prog')||'{}')}catch(e){progress={}}}
-function saveProg(){try{localStorage.setItem('gl2_prog',JSON.stringify(progress))}catch(e){}}
-function tutDone(){try{return!!localStorage.getItem('gl2_tut')}catch(e){return false}}
-function setTutDone(){try{localStorage.setItem('gl2_tut','1')}catch(e){}}
+// STORAGE
+function loadProg(){try{progress=JSON.parse(localStorage.getItem('gl3_prog')||'{}')}catch(e){progress={}}}
+function saveProg(){try{localStorage.setItem('gl3_prog',JSON.stringify(progress))}catch(e){}}
+function tutDone(){try{return!!localStorage.getItem('gl3_tut')}catch(e){return false}}
+function setTutDone(){try{localStorage.setItem('gl3_tut','1')}catch(e){}}
 function stars(id){return progress[id]||0}
-function unlocked(id){return id===1||(progress[id-1]||0)>=1}
+function unlocked(id){return testMode||id===1||(progress[id-1]||0)>=1}
 
-// ── SCREENS ──
+// SCREENS
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 function startFromTitle(){if(tutDone()){show('s-map');renderMap();}else show('s-tut');}
-function goMap(){stopConfetti();hideLCOverlay();show('s-map');renderMap();}
-function doReset(){if(!confirm('Reset all progress?'))return;progress={};try{localStorage.removeItem('gl2_prog');}catch(e){}renderMap();}
+function goMap(){stopConf();hideLCO();show('s-map');renderMap();}
+function doReset(){if(!confirm('Reset all progress?'))return;progress={};try{localStorage.removeItem('gl3_prog');}catch(e){}renderMap();}
+function toggleTest(){
+  testMode=!testMode;
+  const b=document.getElementById('test-btn');
+  b.textContent=testMode?'test: on':'test: off';
+  b.style.borderColor=testMode?'var(--gn-br)':'var(--pu-br)';
+  b.style.color=testMode?'var(--gn)':'var(--pu)';
+  renderMap();
+}
 
-// ── TUTORIAL ──
+// TUTORIAL
 let tStep=0;
 function setTStep(n){
   tStep=n;
@@ -356,38 +441,39 @@ function tutNext(){if(tStep<2)setTStep(tStep+1);else finishTut();}
 function tutPrev(){if(tStep>0)setTStep(tStep-1);}
 function finishTut(){setTutDone();show('s-map');renderMap();}
 
-// ── MAP ──
+// MAP
 function renderMap(){
   const g=document.getElementById('level-grid');g.innerHTML='';
   LEVELS.forEach(lv=>{
     const s=stars(lv.id),open=unlocked(lv.id);
+    const cls='lvl-nd '+(open?(s>0?'done':'open'):'locked')+(lv.challenge?' challenge':'');
     const n=document.createElement('div');
-    const cls=open?(s>0?'done':'open'):'locked';
-    n.className='lvl-nd '+cls;
+    n.className=cls;
     n.innerHTML=`<div class="ln-num">${lv.id}</div>
-      <div class="ln-st ${s?'has':'no'}">${s?'★'.repeat(s)+'☆'.repeat(3-s):'☆☆☆'}</div>`;
+      <div class="ln-st ${s?'has':'no'}">${s?'★'.repeat(s)+'☆'.repeat(3-s):'☆☆☆'}</div>
+      ${lv.challenge&&open?'<div class="ln-badge">★</div>':''}`;
     if(open)n.onclick=()=>startLevel(lv.id);
     g.appendChild(n);
   });
 }
 
-// ── BOARD ──
-function getPos(W){
-  const c=LCFG,step=c.vs+c.gap;
+// BOARD
+function getPos(loop,W){
+  const c=LCFG[loop],step=c.vs+c.gap;
   const rw=c.half*c.vs+(c.half-1)*c.gap,sx=Math.round((W-rw)/2);
-  const ty=18,by=ty+c.vs+48,p=[];
+  const ty=16,by=ty+c.vs+44,p=[];
   for(let i=0;i<c.half;i++)p[i]={x:sx+i*step,y:ty};
   for(let i=0;i<c.half;i++)p[c.half+i]={x:sx+(c.half-1-i)*step,y:by};
   return p;
 }
-function bW(){return document.getElementById('board').offsetWidth||360;}
-function vCx(i){return getPos(bW())[i].x+LCFG.vs/2;}
-function vCy(i){return getPos(bW())[i].y+LCFG.vs/2;}
-function badgeY(i){const p=getPos(bW());return i<LCFG.half?p[i].y-24:p[i].y+LCFG.vs+4;}
-function isHidden(i){return curLv.hidden&&curLv.hidden.includes(i)&&!hiddenRev[i];}
+function bW(){return document.getElementById('board').offsetWidth||380;}
+function vCx(i){return getPos(curLv.loop,bW())[i].x+LCFG[curLv.loop].vs/2;}
+function vCy(i){return getPos(curLv.loop,bW())[i].y+LCFG[curLv.loop].vs/2;}
+function badgeY(i){const c=LCFG[curLv.loop],p=getPos(curLv.loop,bW());return i<c.half?p[i].y-22:p[i].y+c.vs+4;}
+function isHid(i){return curLv.hidden&&curLv.hidden.includes(i)&&!hidRev[i];}
 
-function buildSVG(p,h){
-  const{half,vs}=LCFG;
+function buildSVG(loop,p,h){
+  const c=LCFG[loop],{half,vs}=c;
   const tlx=p[0].x+vs/2,trx=p[half-1].x+vs/2;
   const ty=p[0].y+vs/2,by=p[half].y+vs/2;
   const cx=Math.round((tlx+trx)/2),cy=Math.round((ty+by)/2);
@@ -397,27 +483,29 @@ function buildSVG(p,h){
     <marker id="a2" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto"><polygon points="0 0,7 2.5,0 5" fill="#B8A88A88"/></marker>
   </defs>
   <ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="none" stroke="#D8CCBA" stroke-width="1.5"/>
-  <line x1="${cx-20}" y1="${by}" x2="${cx+20}" y2="${by}" stroke="#C47B1050" stroke-width="1.5" marker-end="url(#a1)"/>
-  <line x1="${cx+20}" y1="${ty}" x2="${cx-20}" y2="${ty}" stroke="#C47B1050" stroke-width="1.5" marker-end="url(#a1)"/>`;
+  <line x1="${cx-16}" y1="${by}" x2="${cx+16}" y2="${by}" stroke="#C47B1050" stroke-width="1.5" marker-end="url(#a1)"/>
+  <line x1="${cx+16}" y1="${ty}" x2="${cx-16}" y2="${ty}" stroke="#C47B1050" stroke-width="1.5" marker-end="url(#a1)"/>`;
 }
 
 function renderBoard(){
   const el=document.getElementById('board');
-  const p=getPos(bW()),h=p[LCFG.half].y+LCFG.vs+18;
+  const c=LCFG[curLv.loop],p=getPos(curLv.loop,bW());
+  const h=p[c.half].y+c.vs+16;
   el.style.height=h+'px';
   el.querySelectorAll('.v,.badge').forEach(e=>e.remove());
   const svg=document.getElementById('bsvg');
-  svg.setAttribute('height',h);svg.innerHTML=buildSVG(p,h);
+  svg.setAttribute('height',h);svg.innerHTML=buildSVG(curLv.loop,p,h);
 
-  for(let i=0;i<LCFG.n;i++){
+  for(let i=0;i<c.n;i++){
     const{x,y}=p[i],d=document.createElement('div');
     d.className='v';
-    d.style.cssText=`left:${x}px;top:${y}px;width:${LCFG.vs}px;height:${LCFG.vs}px;font-size:18px;`;
-    const hidden=isHidden(i),st=vState[i];
+    const fs=c.vs>=50?17:c.vs>=40?14:12;
+    d.style.cssText=`left:${x}px;top:${y}px;width:${c.vs}px;height:${c.vs}px;font-size:${fs}px;`;
+    const hid=isHid(i),st=vState[i];
     if(st)d.classList.add(st);
-    if(hidden){
+    if(hid){
       d.classList.add('hidden');
-      d.innerHTML='<span style="font-size:22px;line-height:1">?</span>';
+      d.innerHTML=`<span style="font-size:${fs+4}px;line-height:1">?</span>`;
       if(phase==='pick')d.onclick=()=>pickVault(i);
     } else {
       if(board[i]===0)d.classList.add('empty');
@@ -449,26 +537,22 @@ function drawArrow(a,b,col){
 function clearArrows(){document.getElementById('bsvg').querySelectorAll('.ra').forEach(a=>a.remove());}
 function setSt(t){document.getElementById('status').textContent=t;}
 
-// ── GAME LOGIC ──
+// GAME
 function nxt(i){return(i+1)%curLv.gems.length;}
 
 async function pickVault(idx){
   if(phase!=='pick')return;
-  const hidden=isHidden(idx);
-  if(!hidden&&!board[idx])return;
+  const hid=isHid(idx);
+  if(!hid&&!board[idx])return;
   phase='sowing';clearBadges();clearArrows();
-  if(hidden){
-    hiddenRev[idx]=true;
+  if(hid){
+    hidRev[idx]=true;
     const k=board[idx];
     vState={};vState[idx]='hreveal';renderBoard();
     addBadge(idx,`revealed: ${k} gems!`,'rev');
     setSt(`mystery vault revealed — ${k} gems inside!`);
-    await dl(750);clearBadges();
+    await dl(700);clearBadges();
   }
-  await startSow(idx);
-}
-
-async function startSow(idx){
   const k=board[idx];board[idx]=0;
   vState={};trail=[];vState[idx]='source';renderBoard();
   setSt(`picked up ${k} gems — dropping clockwise…`);
@@ -481,43 +565,48 @@ async function dropGems(from,k){
   let cur=from;
   for(let i=0;i<k;i++){
     cur=nxt(cur);board[cur]++;
-    vState[cur]='dropping';renderBoard();await dl(DROP);
+    
+    vState[cur]='dropping';renderBoard();
+    await dl(DROP);
     vState[cur]='trail';
-    trail.push(cur);if(trail.length>8)trail.shift();
+    trail.push(cur);if(trail.length>10)trail.shift();
     trail.forEach(v=>{if(vState[v]!=='dropping')vState[v]='trail';});
   }
   return cur;
 }
 
 async function resolveEnd(lastV){
-  vState={};renderBoard();await dl(200);
+  vState={};
+  
+  renderBoard();await dl(200);
   const nx=nxt(lastV),af=nxt(nx);
   vState[lastV]='lastdrop';renderBoard();
   addBadge(lastV,'dropped here','stop');
   setSt('checking next vault…');
-  await dl(520);drawArrow(lastV,nx,'a');await dl(380);
+  await dl(500);drawArrow(lastV,nx,'a');await dl(360);
   if(board[nx]===0){
     vState[nx]='nocollect';renderBoard();
     addBadge(nx,'empty','empty');
     setSt('empty! checking vault after…');
-    await dl(500);drawArrow(nx,af,'g');await dl(380);
+    await dl(480);drawArrow(nx,af,'g');await dl(360);
     if(board[af]>0){
       const got=board[af];board[af]=0;score+=got;
+      if(isHid(af))hidRev[af]=true;
       vState[af]='collected';renderBoard();
       addBadge(af,`+${got} collected!`,'collect');
       setSt(`collected ${got} gems!`);
-      await dl(650);
+      await dl(620);
     } else {
       vState[af]='nocollect';renderBoard();
       addBadge(af,'also empty','miss');
       setSt('both empty — no collect this pick');
-      await dl(450);
+      await dl(420);
     }
   } else {
     vState[nx]='nocollect';renderBoard();
     addBadge(nx,'not empty','miss');
-    setSt('next vault has gems — no collect, pick ends');
-    await dl(450);
+    setSt('next vault has gems — no collect');
+    await dl(420);
   }
   endTurn();
 }
@@ -530,82 +619,97 @@ function endTurn(){
 }
 
 function showComplete(){
-  phase='done';const lv=curLv;
-  const s=score>=lv.target?3:score>=Math.round(lv.target*.65)?2:score>0?1:0;
+  phase='done';
+  const lv=curLv;
+  const win=score>=lv.target;
+  const s=win?3:score>=Math.round(lv.target*.65)?2:score>0?1:0;
   if(s>(progress[lv.id]||0)){progress[lv.id]=s;saveProg();}
-  const hasNext=score>=lv.target&&lv.id<25;
-  document.getElementById('lc-title').textContent=score>=lv.target?`Level ${lv.id} complete!`:'Good try!';
-  document.getElementById('lc-sub').textContent=score>=lv.target
-    ?`You collected ${score} gems in ${lv.turns - turnsLeft} pick${lv.turns-turnsLeft!==1?'s':''}`
-    :`You collected ${score} of ${lv.target} gems. Try again!`;
+  isChalWin=win&&!!lv.challenge;
+  document.getElementById('lc-emoji').textContent=isChalWin?'🏆':win?'🎉':'😅';
+  document.getElementById('lc-ttl').textContent=isChalWin?`Challenge ${lv.id} conquered!`:win?`Level ${lv.id} complete!`:'Good try!';
+  document.getElementById('lc-sub').textContent=win
+    ?`You collected ${score} gems`
+    :`You collected ${score} of ${lv.target} gems — try again!`;
   document.getElementById('lc-stars').textContent=s>=3?'★★★':s>=2?'★★☆':s>=1?'★☆☆':'☆☆☆';
-  document.getElementById('lc-next').style.display=hasNext?'inline-flex':'none';
+  document.getElementById('lc-next').style.display=(win&&lv.id<100)?'inline-flex':'none';
   document.getElementById('lc-overlay').classList.add('show');
-  if(score>=lv.target)startConfetti();
+  if(win)startConf(isChalWin);
 }
 
-function hideLCOverlay(){
-  document.getElementById('lc-overlay').classList.remove('show');
-  stopConfetti();
-}
+function hideLCO(){document.getElementById('lc-overlay').classList.remove('show');}
 
 function startLevel(id){
   const lv=LEVELS.find(l=>l.id===id);
   if(!lv||!unlocked(id))return;
   curLv=lv;board=[...lv.gems];score=0;turnsLeft=lv.turns;
-  phase='idle';vState={};trail=[];hiddenRev={};
-  stopConfetti();hideLCOverlay();
+  phase='idle';vState={};trail=[];hidRev={};
+  stopConf();hideLCO();
   document.getElementById('g-name').textContent=`${lv.id}. ${lv.name}`;
   document.getElementById('g-target').textContent=lv.target;
+  const chal=document.getElementById('g-chal');
+  chal.style.display=lv.challenge?'inline':'none';
   show('s-game');
   setTimeout(()=>{phase='pick';renderBoard();setSt('tap an amber vault — each pick is one turn');},60);
 }
-function retryLevel(){hideLCOverlay();if(curLv)startLevel(curLv.id);}
-function nextLevel(){hideLCOverlay();if(curLv&&curLv.id<25)startLevel(curLv.id+1);else goMap();}
+function retryLevel(){hideLCO();if(curLv)startLevel(curLv.id);}
+function nextLevel(){hideLCO();if(curLv&&curLv.id<100)startLevel(curLv.id+1);else goMap();}
 
-// ── CONFETTI ──
-function startConfetti(){
+// CONFETTI
+function startConf(isChallenge){
   const wrap=document.getElementById('confetti-wrap');
   const canvas=document.getElementById('confetti-canvas');
   wrap.classList.add('show');
   canvas.width=window.innerWidth;canvas.height=window.innerHeight;
   const ctx=canvas.getContext('2d');
-  const colors=['#C47B10','#E8A83A','#58A048','#6B3FA0','#B84A6E','#2A6618','#FEF3DF'];
-  const pieces=Array.from({length:120},()=>({
+  const count=isChallenge?250:120;
+  const speed=isChallenge?3.5:2.5;
+  const colors=isChallenge
+    ?['#C47B10','#E8A83A','#FFD700','#FFF8DC','#58A048','#6B3FA0','#B84A6E','#2A6618']
+    :['#C47B10','#E8A83A','#58A048','#6B3FA0','#B84A6E','#2A6618','#FEF3DF'];
+  const shapes=isChallenge?['circle','rect','star']:['circle','rect'];
+  const pieces=Array.from({length:count},()=>({
     x:Math.random()*canvas.width,
     y:Math.random()*canvas.height-canvas.height,
-    r:Math.random()*6+3,
-    d:Math.random()*80+40,
+    r:Math.random()*(isChallenge?9:6)+3,
     color:colors[Math.floor(Math.random()*colors.length)],
+    shape:shapes[Math.floor(Math.random()*shapes.length)],
     tilt:Math.random()*10-5,
-    ts:Math.random()*.05+.02,
-    tc:0,angle:Math.random()*360,as:Math.random()*3+1,
-    shape:Math.random()>.5?'circle':'rect'
+    tc:Math.random()*.05+.02,
+    angle:Math.random()*360,
+    as:Math.random()*3+1,
   }));
+
+  function drawStar(ctx,x,y,r){
+    ctx.beginPath();
+    for(let i=0;i<5;i++){
+      const a=((i*4*Math.PI)/5)-Math.PI/2;
+      const b=((i*4*Math.PI)/5+2*Math.PI/5)-Math.PI/2;
+      ctx.lineTo(Math.cos(a)*r+x,Math.sin(a)*r+y);
+      ctx.lineTo(Math.cos(b)*(r*.4)+x,Math.sin(b)*(r*.4)+y);
+    }
+    ctx.closePath();ctx.fill();
+  }
+
   function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     pieces.forEach(p=>{
       ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.angle*Math.PI/180);
-      ctx.fillStyle=p.color;ctx.globalAlpha=.85;
+      ctx.fillStyle=p.color;ctx.globalAlpha=.88;
       if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.r,0,2*Math.PI);ctx.fill();}
-      else{ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);}
+      else if(p.shape==='rect'){ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);}
+      else{drawStar(ctx,0,0,p.r);}
       ctx.restore();
-    });
-    pieces.forEach(p=>{
-      p.y+=2.5;p.x+=Math.sin(p.tc)*1.5;
-      p.tc+=p.ts;p.angle+=p.as;
+      p.y+=speed;p.x+=Math.sin(p.tc)*1.8;p.tc+=.025;p.angle+=p.as;
       if(p.y>canvas.height+20){p.y=-20;p.x=Math.random()*canvas.width;}
     });
-    confettiAnim=requestAnimationFrame(draw);
+    confAnim=requestAnimationFrame(draw);
   }
-  if(confettiAnim)cancelAnimationFrame(confettiAnim);
+  if(confAnim)cancelAnimationFrame(confAnim);
   draw();
 }
-function stopConfetti(){
-  if(confettiAnim){cancelAnimationFrame(confettiAnim);confettiAnim=null;}
+function stopConf(){
+  if(confAnim){cancelAnimationFrame(confAnim);confAnim=null;}
   document.getElementById('confetti-wrap').classList.remove('show');
-  const ctx=document.getElementById('confetti-canvas').getContext('2d');
-  ctx.clearRect(0,0,99999,99999);
 }
 
 loadProg();
