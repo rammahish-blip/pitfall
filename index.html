@@ -412,7 +412,7 @@ function saveProg(){try{localStorage.setItem('gl3_prog',JSON.stringify(progress)
 function tutDone(){try{return!!localStorage.getItem('gl3_tut')}catch(e){return false}}
 function setTutDone(){try{localStorage.setItem('gl3_tut','1')}catch(e){}}
 function stars(id){return progress[id]||0}
-function unlocked(id){return testMode||id===1||(progress[id-1]||0)>=1}
+function unlocked(id){ return testMode||id===1||(progress[id-1]||0)>=3; }
 
 // SCREENS
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
@@ -446,7 +446,7 @@ function renderMap(){
   const g=document.getElementById('level-grid');g.innerHTML='';
   LEVELS.forEach(lv=>{
     const s=stars(lv.id),open=unlocked(lv.id);
-    const cls='lvl-nd '+(open?(s>0?'done':'open'):'locked')+(lv.challenge?' challenge':'');
+    const cls='lvl-nd '+(open?(s===3?'done':'open'):'locked')+(lv.challenge?' challenge':'');
     const n=document.createElement('div');
     n.className=cls;
     n.innerHTML=`<div class="ln-num">${lv.id}</div>
@@ -622,7 +622,7 @@ function showComplete(){
   phase='done';
   const lv=curLv;
   const win=score>=lv.target;
-  const s=win?3:score>=Math.round(lv.target*.65)?2:score>0?1:0;
+  const s=score>=lv.target?3:0;
   if(s>(progress[lv.id]||0)){progress[lv.id]=s;saveProg();}
   isChalWin=win&&!!lv.challenge;
   document.getElementById('lc-emoji').textContent=isChalWin?'🏆':win?'🎉':'😅';
